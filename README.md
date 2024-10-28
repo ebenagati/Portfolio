@@ -1,7 +1,7 @@
 # Eben Agati - Data Analyst Portfolio
 ## About Me
 
-Hello all, my name is Eben Agati -welcome to my portfolio!<br/><br/>
+Hello all, my name is Eben Agati - welcome to my portfolio!<br/><br/>
 I studied Economics at the University of Nottingham, once I graduated, I worked in External Audit for approximately 18 months.<br/> After my stint as an auditor I transitioned to a Business Analyst role to which I have been working in the world of Business Analysis since.<br/>
 Throughout my career I have always loved the data analysis segments of my roles therefore I have decided to create this portfolio in order to showcase my skills, expand and improve my skillset and to derive interesting insights about topics that I love.
 
