@@ -14,6 +14,7 @@ Throughout my career I have always loved the data analysis segments of my roles 
 
 ## Projects
 
+
 ## Education
 
 ### ICAS Professional Qualification (Part qualification)                                     
