@@ -6,7 +6,7 @@ I studied Economics at the University of Nottingham, once I graduated, I worked 
 Throughout my career I have always loved the data analysis segments of my roles therefore I have decided to create this portfolio in order to showcase my skills, improve my skillset and to derive interesting insights about topics that I love.
 
 ## Table of Contents
-- About Me
+- [About Me](#About-Me)
 - Projects
   - Football Myths
 - Education
