@@ -8,7 +8,7 @@ Throughout my career I have always loved the data analysis segments of my roles 
 ## Table of Contents
 - [About Me](#About-Me)
 - [Projects](#Projects)
-  - [Beyond the Myths: A Data-Driven Analysis of Common Myths in Football](#Beyond-the-Myth-:-A-Data-Driven-Analysis-of-Common-Myths-in-Football)
+  - [Beyond the Myths: A Data-Driven Analysis of Common Myths in Football](#Beyond-the-Myth:-A-Data-Driven-Analysis-of-Common-Myths-in-Football)
 - [Education](#Education)
 - [Contact](#Contact)
 
