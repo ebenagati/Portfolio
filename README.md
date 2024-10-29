@@ -8,7 +8,7 @@ Throughout my career I have always loved the data analysis segments of my roles 
 ## Table of Contents
 - [About Me](#About-Me)
 - [Projects](#Projects)
-  - [Beyond the Myths: A Data-Driven Analysis of Common Myths in Football](#Beyond-the-Myth:-A-Data-Driven-Analysis-of-Common-Myths-in-Football)
+  - [Beyond the Myths: A Data-Driven Analysis of Common Myths in Football](#beyond-the-myth:-a-data-driven-analysis-of-common-myths-in-football)
 - [Education](#Education)
 - [Contact](#Contact)
 
@@ -20,7 +20,7 @@ Within this section, you can find brief explanation of each project I have worke
 **Description:** This project explores two popular football beliefs: the 'dangerous' nature of a 2-0 scoreline and the concept of home-field advantage. Using data from the last 10 seasons within the Premier League, I aim to uncover the accuracy of these assumptions through data analysis. The analysis of the 2-0 scoreline is primarily completed within Python while the analysis of home field advantage is completed within Power BI. <br/><br/>
 **Technology Stack:** Python, Pandas, Numpy, Matplotlib, Excel, Power BI <br/><br/>
 **Key Insights:** <br/><br/>
-**Code:** <br/><br/>
+**Code:** [Beyond the Myth](https://github.com/ebenagati/Portfolio/blob/main/Football%20Myths.ipynb)<br/>
 **Dashboard:** <br/><br/>
 
 ## Education
