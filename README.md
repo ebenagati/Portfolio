@@ -16,13 +16,22 @@ Throughout my career I have always loved the data analysis segments of my roles 
 Within this section, you can find brief explanation of each project I have worked on along with the technology stack used.
 
 ### Beyond the Myths: A Data-Driven Analysis of Common Myths in Football
-**Aim:** To investigate whether 2-0 is a dangerous scoreline and to understand whether there is really an advantage playing at home.<br/><br/>
-**Description:** This project explores two popular football beliefs: the 'dangerous' nature of a 2-0 scoreline and the concept of home-field advantage. Using data from the last 10 seasons within the Premier League, I aim to uncover the accuracy of these assumptions through data analysis. The analysis of the 2-0 scoreline is primarily completed within Python while the analysis of home field advantage is completed within Power BI. <br/><br/>
-**Technology Stack:** Python, Pandas, Numpy, Matplotlib, Excel, Power BI <br/><br/>
-**Key Insights:** <br/><br/>
-**Code:** [Beyond the Myth](https://github.com/ebenagati/Portfolio/blob/main/Football%20Myths.ipynb)<br/>
-**Dashboard:** <br/><br/>
+**Aim:** <br/>
+To investigate whether 2-0 is a dangerous scoreline and to understand whether there is really an advantage playing at home.<br/><br/>
+**Description:** <br/>
+This project explores two popular football beliefs: the 'dangerous' nature of a 2-0 scoreline and the concept of home-field advantage. Using data from the last 10 seasons within the Premier League, I aim to uncover the accuracy of these assumptions through data analysis. The analysis of the 2-0 scoreline is primarily completed within Python while the analysis of home field advantage is completed within Power BI. <br/><br/>
+**Technology Stack:**<br/>
+Python, Pandas, Numpy, Matplotlib, Excel, Power BI <br/><br/>
+**Key Insights:** <br/>
+The data shows that when a team is winning 2-0 at halftime they are overwhelmingly likely to win the game - 93.4% and 89.18% respectively for Home and Away teams.<br />
+This indicates that 2-0 is not a dangerous scoreline as leading teams are very likely to finish the game with a win<br/><br/>
+Based on the following metrics: Win Rate, % of total goals scored at Home vs Away, Home Expected Goals vs Away Expected Goals, Home Shots vs Away Shots & Home Shots on Target vs Away Shots on Target.<br/>
+A team statistically performs better at home.<br/>
 
+**Code:** <br/>
+[Beyond the Myth](https://github.com/ebenagati/Portfolio/blob/main/Football%20Myths.ipynb)<br/><br/>
+**Dashboard:** <br/><br/>
+**Dashboard Analysis** <br/><br/>
 ## Education
 
 ### ICAS Professional Qualification (Part qualification)                                     
