@@ -29,7 +29,7 @@ Based on the following metrics: Win Rate, % of total goals scored at Home vs Awa
 A team statistically performs better at home.<br/>
 
 **Code:** <br/>
-[Beyond the Myth](https://github.com/ebenagati/Portfolio/blob/main/Football%20Myths.ipynb](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20the%20Myths)<br/><br/>
+[Beyond the Myth](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20the%20Myths)<br/><br/>
 **Dashboard:** <br/><br/>
 **Dashboard Analysis** <br/><br/>
 ## Education
