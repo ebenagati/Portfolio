@@ -7,13 +7,21 @@ Throughout my career I have always loved the data analysis segments of my roles 
 
 ## Table of Contents
 - [About Me](#About-Me)
-- Projects
+- [Projects](#Projects)
   - Football Myths
-- Education
-- Contact
+- [Education](#Education)
+- [Contact](#Contact)
 
 ## Projects
+Within this section, you can find brief explanation of each project I have worked on along with the technology stack used.
 
+### Beyond the Myths: A Data-Driven Analysis of Common Myths in Football
+**Aim:** To investigate whether 2-0 is a dangerous scoreline and to understand whether there is really an advantage playing at home.<br/><br/>
+**Description:** This project explores two popular football beliefs: the 'dangerous' nature of a 2-0 scoreline and the concept of home-field advantage. Using data from the last 10 seasons within the Premier League, I aim to uncover the accuracy of these assumptions through data analysis. The analysis of the 2-0 scoreline is primarily completed within Python while the analysis of home field advantage is completed within Power BI. <br/><br/>
+**Technology Stack:** Python, Pandas, Numpy, Matplotlib, Excel, Power BI <br/><br/>
+**Key Insights:** <br/><br/>
+**Code:** <br/><br/>
+**Dashboard:** <br/><br/>
 
 ## Education
 
@@ -26,3 +34,8 @@ Throughout my career I have always loved the data analysis segments of my roles 
   - _Highest performer in the academic year group for all three subjects._
   - _Highest performer across Ghana for Economics & Business Studies._
 - IGCSE Grades: 6A*s 2As (A* in English, A in Maths).                                                        
+
+
+## Contact
+Email - ebenagati@yahoo.co.uk<br/>
+Linkedin - https://www.linkedin.com/in/eben-agati-3466a5133/
