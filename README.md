@@ -13,7 +13,7 @@ Throughout my career I have always loved the data analysis segments of my roles 
 - [Contact](#Contact)
 
 ## Projects
-Within this section, you can find brief explanation of each project I have worked on along with the technology stack used.
+Within this section, you can find a brief explanation of each project I have worked on along with the technology stack used.
 
 ### Beyond the Myths: A Data-Driven Analysis of Common Myths in Football
 **Aim:** <br/>
@@ -31,7 +31,7 @@ A team statistically performs better at home.<br/>
 **Code:** <br/>
 [Beyond the Myths: A Data-Driven Analysis of Common Myths in Football](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20the%20Myths%20.ipynb)<br/><br/>
 **Dashboard:** <br/><br/>
-**Dashboard Analysis** <br/>[Beyond the Myths Dashboard Insight Analysis](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20the%20Myths%20Dashboard%20Insight%20Analysis%20.md)<br/>
+**Dashboard Analysis:** <br/>[Beyond the Myths Dashboard Insight Analysis](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20the%20Myths%20Dashboard%20Insight%20Analysis%20.md)<br/>
 ## Education
 
 ### ICAS Professional Qualification (Part qualification)                                     
