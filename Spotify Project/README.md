@@ -182,3 +182,5 @@ DROP COLUMN Episode_Name, Episode_Show_Name, Spotify_Eposide_Uri, Audiobook_Titl
 <br/>Subsequently, I deicde to check to see if there is any duplicate rows. Before I begin querying the data I have another inspection of the data and realise that a duplicate check may not be appropriate here due to a few reasons:
 - The spotify_track_uri holds the unique track ID's however due to the fact tracks can be listened multiple times, this alone would not be appropriate
 - A combination of spotify_track_uri & a timestamp for example cannot be used due to the fact the timestamps are not unique. This is because of Spotify's offline mode which allows music to be listened when a device is not connected to the internet. Music listened through this method are still documented however, the record of the user listening to these offline songs receive the timestamp of when device has re-connected to the internet hence creating the possibility of multiple duplicate timestamps
+
+TALK ABOUT OFFLINE TIMESTAMP
