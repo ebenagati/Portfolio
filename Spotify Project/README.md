@@ -135,8 +135,8 @@ For ease of readability, I decide to change the field names, at this stage I can
 | Shuffle                   | bit            |
 | Skipped                   | bit            |
 | Offline                   | bit            |
-| Offline_Timestamp         | float          |
-| Incognito_Mode            | bit            |     |
+| Offline_Timestamp         | nvarchar(MAX)  |
+| Incognito_Mode            | bit            |
 
 Secondly, I decided to check for null values, my check was for NULLs was based on the Artist field as this field is central to my analysis.
 
