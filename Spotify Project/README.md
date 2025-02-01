@@ -191,9 +191,10 @@ Let’s take a look at Spotifys methodology.
 -	For a song to count as a stream it must be listened to for at least 30 seconds
 -	Songs listened to via incognito mode do not count
 -	Songs listened to via offline mode are counted
+
 <br/>In my opinion it can be seen that there are some limitations of Spotify’s methodology.
-<br/>To begin with Spotify Wrapped does not include data from the whole year which is probably to allow their data team enough time to process the data for their users. Typically, the month of December is missed out which can cause an inaccurate view of the data for example artists who primarily make Christmas related music are very unlikely to be within a Spotify Wrapped due to the fact the month in which their music has the highest plays are not included in Spotify Wrapped.
-<br/> Additionally, top artists are determined by how many times they have been played rather than the amount of time they have been listened to over the period. I believe that there are a number of limitations with this method of determing the top artists which can be seen below.
+<br/><br/>To begin with Spotify Wrapped does not include data from the whole year which is probably to allow their data team enough time to process the data for their users. Typically, the month of December is missed out which can cause an inaccurate view of the data for example artists who primarily make Christmas related music are very unlikely to be within a Spotify Wrapped due to the fact the month in which their music has the highest plays are not included in Spotify Wrapped.
+<br/><br/>Additionally, top artists are determined by how many times they have been played rather than the amount of time they have been listened to over the period. I believe that there are a number of limitations with this method of determing the top artists which can be seen below.
 - Genres with naturally shorter track lengths such as pop would have an advantage over those with longer formats such as classical.
 - Based on knowing my listening habits, its not uncommon for me to only listen to a song for a short about of time and then press next
 
