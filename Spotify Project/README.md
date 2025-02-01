@@ -3,7 +3,7 @@
 ## Problem Statement 
 There's a few things that are guaranteed in life, death, taxes and Drake being within my spotify wrapped. <br/><br/>
 Spotify Wrapped is a yearly summary of listening habits that Spotify provide to it's users. This wrap up shows a user's Top 5 Artists, Top 5 Genres, Top 5 Songs and the amount of minutes of Spotify listened to across the year.<br/>
-Over the years i've noticed a pattern of Drake appearing in my Top 5 Artists every year despite me not choosing to listen to Drake very often.<br/><br/>
+Over the years i've noticed a pattern of Drake appearing in my Top 5 Artists every year despite me not choosing to listen to Drake very often within certain years.<br/><br/>
 This project attempts to investigate my listening habits and to discover whether Drake truly deserves to be within my top 5 artists each year.
 
 ## Dataset Overview
@@ -185,20 +185,20 @@ DROP COLUMN Episode_Name, Episode_Show_Name, Spotify_Eposide_Uri, Audiobook_Titl
 
 ## Spotify's Methodology
 Let’s take a look at Spotifys methodology.
-<br/>Spotify Wrapped methodology to calculate the top 5 artists is based on the following:
+<br/>Spotify Wrapped's methodology used to calculate the top 5 artists is based on the following:
+-   Top Artists are determined by the number of streams an artist receives within the date period.
 -	Date period includes January to an unspecified date within November.
--	Top Artists are determined by the number of plays an artist receives 
--	For a song to count as a stream it must be listened to for at least 30 seconds
--	Songs listened to via incognito mode do not count
--	Songs listened to via offline mode are counted
+-	For a song to count as a stream it must be listened to for at least 30 seconds.
+-	Songs listened to via incognito mode do not count.
+-	Songs listened to via offline mode are counted.
 
 <br/>In my opinion it can be seen that there are some limitations of Spotify’s methodology.
-<br/><br/>To begin with Spotify Wrapped does not include data from the whole year which is probably to allow their data team enough time to process the data for their users. Typically, the month of December is missed out which can cause an inaccurate view of the data for example artists who primarily make Christmas related music are very unlikely to be within a Spotify Wrapped due to the fact the month in which their music has the highest plays are not included in Spotify Wrapped.
+<br/><br/>To begin with Spotify Wrapped does not include data from the whole year which is probably to allow their data team enough time to process the data for their users. Typically, the month of December is missed out which can cause an inaccurate view of the data for example artists who primarily make Christmas related music are very unlikely to be within a Spotify Wrapped due to the fact the month in which their music has the highest streams are not included in Spotify Wrapped.
 <br/><br/>Additionally, top artists are determined by how many times they have been played rather than the amount of time they have been listened to over the period. I believe that there are a number of limitations with this method of determing the top artists which can be seen below.
 - Genres with naturally shorter track lengths such as pop would have an advantage over those with longer formats such as classical.
-- Based on knowing my listening habits, its not uncommon for me to only listen to a song for a short about of time and then press next
+- Based on knowing my listening habits, its not uncommon for me to only listen to a song for a short about of time and then press next hence my short term listening habits will skew my top artists
 
-Based on the Spotify's methodology, I believe this has I believe my top artist should be the artist that I have spent the most time listening to rather than the artist who I have played the most often.
+I believe my top artist should be the artist that I have spent the most time listening to rather than the artist who I have played the most often as listening to an artist for a longer amount of time shows a deeper level of engagement versus.
 
 ## Analysis
 In order to address the problem statement, I will use the below metholodology to analyse whether Drake truly deserves a spot in my top 5 artists across the years:
@@ -207,4 +207,38 @@ In order to address the problem statement, I will use the below metholodology to
 - Songs listened to via incognito mode do not count
 - Songs listened to via offline mode are counted
 Subsequently, I will compare the results from Spotify's methodology top 5 artists versus the top 5 artists from my above methodology
+
+### 2024
+I will use the below query to extract the top 5 artists based on my methodology:
+```sql
+SELECT TOP 5 Artist, Year, SUM(Milliseconds) / 60000 as Minutes_Listened
+FROM Spotify
+WHERE Year = 2024 and (Incognito_Mode = 0)
+GROUP BY Artist, Year
+ORDER BY SUM(Milliseconds) DESC;
+```
+<br/>
+
+Output:
+| Artist      | Year | Minutes Listened |
+|-------------|------|------------------|
+| Drake       | 2024 | 1651             |
+| Bashy       | 2024 | 1506             |
+| K-Trap      | 2024 | 1455             |
+| Headie One  | 2024 | 1281             |
+| Ed Sheeran  | 2024 | 1110             |
+
+Now let's compare this to Spotify Wrapped's results:
+
+| Position | Spotify Methodology Artist | My Methodology Artist | Year |
+|----------|-----------------------------|-----------------------|------|
+| 1        | K-Trap                      | Drake                 | 2024 |
+| 2        | Headie One                  | Bashy                 | 2024 |
+| 3        | Drake                       | K-Trap                | 2024 |
+| 4        | Bashy                       | Headie One            | 2024 |
+| 5        | Future                      | Ed Sheeran            | 2024 |
+
+My methodology shows Drake as my #1 artist based on how many minutes i've listened to him.
+Looking back over the year this makes a lot of sense due to Drake's conflict with Kendrick Lamar, this contributed a lot to me listening to Draje
+
 
