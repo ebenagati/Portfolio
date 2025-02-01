@@ -183,4 +183,27 @@ DROP COLUMN Episode_Name, Episode_Show_Name, Spotify_Eposide_Uri, Audiobook_Titl
 - The spotify_track_uri holds the unique track ID's however due to the fact tracks can be listened multiple times, this alone would not be appropriate
 - A combination of spotify_track_uri & a timestamp for example cannot be used due to the fact the timestamps are not unique. This is because of Spotify's offline mode which allows music to be listened when a device is not connected to the internet. Music listened through this method are still documented however, the record of the user listening to these offline songs receive the timestamp of when device has re-connected to the internet hence creating the possibility of multiple duplicate timestamps
 
+## Spotify's Methodology
+Let’s take a look at Spotifys methodology.
+<br/>Spotify Wrapped methodology to calculate the top 5 artists is based on the following:
+-	Date period includes January to an unspecified date within November.
+-	Top Artists are determined by the number of plays an artist receives 
+-	For a song to count as a stream it must be listened to for at least 30 seconds
+-	Songs listened to via incognito mode do not count
+-	Songs listened to via offline mode are counted
+<br/>In my opinion it can be seen that there are some limitations of Spotify’s methodology.
+<br/>To begin with Spotify Wrapped does not include data from the whole year which is probably to allow their data team enough time to process the data for their users. Typically, the month of December is missed out which can cause an inaccurate view of the data for example artists who primarily make Christmas related music are very unlikely to be within a Spotify Wrapped due to the fact the month in which their music has the highest plays are not included in Spotify Wrapped.
+<br/> Additionally, top artists are determined by how many times they have been played rather than the amount of time they have been listened to over the period. I believe that there are a number of limitations with this method of determing the top artists which can be seen below.
+- Genres with naturally shorter track lengths such as pop would have an advantage over those with longer formats such as classical.
+- Based on knowing my listening habits, its not uncommon for me to only listen to a song for a short about of time and then press next
+
+Based on the Spotify's methodology, I believe this has I believe my top artist should be the artist that I have spent the most time listening to rather than the artist who I have played the most often.
+
+## Analysis
+In order to address the problem statement, I will use the below metholodology to analyse whether Drake truly deserves a spot in my top 5 artists across the years:
+- Date period will be across a full year
+- Top Artists are determined by how long they have been played within the year
+- Songs listened to via incognito mode do not count
+- Songs listened to via offline mode are counted
+Subsequently, I will compare the results from Spotify's methodology top 5 artists versus the top 5 artists from my above methodology
 
