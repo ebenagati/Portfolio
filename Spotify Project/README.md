@@ -201,7 +201,7 @@ Let’s take a look at Spotifys methodology.
 I believe my top artist should be the artist that I have spent the most time listening to rather than the artist who I have played the most often as listening to an artist for a longer amount of time shows a deeper level of engagement versus.
 
 ## Analysis
-In order to address the problem statement, I will use the below metholodology to analyse whether Drake truly deserves a spot in my top 5 artists across the years:
+In order to address the problem statement, I will use the below metholodology to analyse whether Drake truly deserves a spot in my top 5 artists across the last 5 years:
 - Date period will be across a full year
 - Top Artists are determined by how long they have been played within the year
 - Songs listened to via incognito mode do not count
@@ -239,6 +239,84 @@ Now let's compare this to Spotify Wrapped's results:
 | 5        | Future                      | Ed Sheeran            | 2024 |
 
 My methodology shows Drake as my #1 artist based on how many minutes i've listened to him.
-Looking back over the year this makes a lot of sense due to Drake's conflict with Kendrick Lamar, this contributed a lot to me listening to Draje
+2024 is particularly an interesting year as a lot of my Drake plays are concentrated around a few songs.
 
+```sql
+SELECT top 5 Artist, Track, Count(Track) as Plays, Cast(Count(Track)*1.0/(SELECT COUNT(*)*1.0 
+                          FROM Spotify 
+                          WHERE Artist = 'Drake' 
+                          AND Year = '2024' 
+                          AND Milliseconds > 30000)*100 AS Decimal(5,2)) AS Proportion_Percentage
+FROM Spotify
+WHERE Artist ='Drake' and year = '2024' and Milliseconds > 30000 and Incoginito_Mode = 0
+GROUP BY Artist, Track
+Order By Count(Track) desc
+```
+Output:
+
+| Artist | Track                                      | Plays | Proportion Percentage |
+|--------|---------------------------------------------|-------|-----------------------|
+| Drake  | Family Matters                             | 42    | 9.40                  |
+| Drake  | Push Ups                                    | 24    | 5.37                  |
+| Drake  | Diplomatic Immunity                         | 13    | 2.91                  |
+| Drake  | Back To Back                                | 11    | 2.46                  |
+| Drake  | First Person Shooter (feat. J. Cole)        | 10    | 2.24                  |
+
+
+The two songs that relate to the conflict were Family Matters and Push Ups, the above table demonstrates how much the two songs relatively dominated my Drake listening habits. 
+Let's repeat the above analysis for other years
+
+### 2023 
+| Position | Spotify Methodology Artist | My Methodology Artist | Year |
+|----------|-----------------------------|-----------------------|------|
+| 1        | Ed Sheeran                  | Ed Sheeran            | 2023 |
+| 2        | Headie One                  | Drake                 | 2023 |
+| 3        | Drake                       | Headie One            | 2023 |
+| 4        | Rod Wave                    | Jason Mraz            | 2023 |
+| 5        | J Hus                       | Rod Wave              | 2023 |
+
+### 2022
+Due to the fact Spotify do not allow you to see your Wrapped from previous years, 2022 is the only year I do not have Spotify Wrapped data for hence, based on Spotify's methodology, I will run a query to emulate their results.
+
+```sql
+SELECT TOP 5 Artist, Year, COUNT(*)
+FROM Spotify
+WHERE Timestamp BETWEEN '2022-01-01T00:00:00Z' AND '2022-11-30T23:59:59Z' and (Milliseconds >= 30000) and (Incognito_Mode = 0)
+GROUP BY Artist, Year
+ORDER BY COUNT(*) DESC;
+```
+
+
+| Position | Spotify Methodology Artist | My Methodology Artist | Year |
+|----------|-----------------------------|-----------------------|------|
+| 1        | Blade Brown                 | PJ Morton             | 2022 |
+| 2        | PJ Morton                    | Adele                 | 2022 |
+| 3        | K-Trap                       | Blade Brown           | 2022 |
+| 4        | Adele                        | K-Trap                | 2022 |
+| 5        | Jason Mraz                   | Jason Mraz            | 2022 |
+
+
+### 2021
+
+| Position | Spotify Methodology Artist | My Methodology Artist | Year |
+|----------|-----------------------------|-----------------------|------|
+| 1        | Kanye West                  | Jason Mraz            | 2021 |
+| 2        | Drake                       | Kanye West            | 2021 |
+| 3        | Headie One                  | Adele                 | 2021 |
+| 4        | Jason Mraz                  | Drake                 | 2021 |
+| 5        | Pop Smoke                   | Owl City              | 2021 |
+
+
+### 2020
+| Position | Spotify Methodology Artist | My Methodology Artist | Year |
+|----------|-----------------------------|-----------------------|------|
+| 1        | Headie One                  | Jhené Aiko            | 2020 |
+| 2        | Jhené Aiko                   | Headie One            | 2020 |
+| 3        | Drake                       | Ms. Lauryn Hill       | 2020 |
+| 4        | Snoh Aalegra                | Drake                 | 2020 |
+| 5        | PJ Morton                    | PJ Morton             | 2020 |
+
+Across the years, Drake has a strong presence irregardless of the methodology except within 2022. This provides a strong indication that Drake does indeed deserve to be within my top aritsts contrary to my original belief of not listening to Drake that often. There are a variety of reasons for this belief.
+
+To begin with, 
 
