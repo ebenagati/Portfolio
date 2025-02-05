@@ -263,8 +263,22 @@ Output:
 | Drake  | First Person Shooter (feat. J. Cole)        | 10    | 2.24                  |
 
 
-The two songs that relate to the conflict were Family Matters and Push Ups, the above table demonstrates how much the two songs relatively dominated my Drake listening habits. 
-Let's repeat the above analysis for other years
+The two songs that relate to the conflict were Family Matters and Push Ups, the above table demonstrates how much the two songs relatively dominated my Drake listening habits. Additionally, if we look at the timestamps we can see that there is a spike in my Drake listening habits in the month of May which was the peak of the conflict.
+
+```sql
+SELECT 
+    DATEPART(MONTH, Timestamp) AS Month, 
+    SUM(Milliseconds) / 60000 AS Minutes_Listened
+FROM Spotify
+WHERE YEAR in (2020, 2021, 2022, 2023, 2024) and Artist = 'Drake'
+GROUP BY DATEPART(MONTH, Timestamp)
+ORDER BY Month;
+```
+
+Output visualised:
+![image alt](https://github.com/ebenagati/Portfolio/blob/main/Spotify%20Project/2024%20Drake%20Minutes%20Listened.PNG?raw=true)
+
+Let's repeat the methodology comparison analysis for the other years.
 
 ### 2023 
 | Position | Spotify Methodology Artist | My Methodology Artist | Year |
@@ -316,7 +330,41 @@ ORDER BY COUNT(*) DESC;
 | 4        | Snoh Aalegra                | Drake                 | 2020 |
 | 5        | PJ Morton                    | PJ Morton             | 2020 |
 
-Across the years, Drake has a strong presence irregardless of the methodology except within 2022. This provides a strong indication that Drake does indeed deserve to be within my top aritsts contrary to my original belief of not listening to Drake that often. There are a variety of reasons for this belief.
+Across the years, Drake has a strong presence irregardless of the methodology except within 2022. However this was quite a surface level analysis. Let's take this analysis a step further and understand the reasons as to why Drake was played.
+<br/><br/>
+Within our dataset we have the column Start_Reason which provides interesting insights as to why a song was played. Below is the list of reasons.
 
-To begin with, 
+| Reason      | Explanation                                                                                         |
+|-------------|-----------------------------------------------------------------------------------------------------|
+| fwdbtn      | User manually skips to the next track by pressing the Next button on their device.                  |
+| trackdone   | The previous track has finished playing naturally and the next track starts automatically.          |
+| clickrow    | User manually selected a track by clicking on it from a playlist, album, or search results.         |
+| backbtn     | User pressed the Previous button to go back to the current track's start or to the previous track.  |
+| trackerror  | Occurs when an error occurs while trying to play the track, and the system attempts to play the next available track. |
+| playbtn     | User presses the Play button to start playback of a song, typically from a paused state.            |
+| remote      | A playback that was started using a connected remote device, such as Spotify Connect, a smart speaker, or another linked device. |
+| appload     | Spotify starts playing a track automatically upon opening the app, such as resuming playback from a previous session. |
 
+Now let's breakdown Drake plays across the last 5 years:
+
+```sql
+Select Start_Reason, Count(Start_Reason) as Count, CAST(Count(Start_Reason)*1.0/(SELECT COUNT(Start_Reason)*1.0 
+                          FROM Spotify 
+                          WHERE Artist = 'Drake'  AND Year in (2020,2021,2022,2023,2024)  AND Milliseconds > 30000)*100 AS Decimal(5,2)) AS Proportion_Percentage
+From Spotify
+Where Artist = 'Drake' and Year in (2020,2021,2022,2023,2024) AND Milliseconds > 30000
+Group by Start_Reason
+Order by Count(Start_Reason) desc
+```
+
+Output:
+| Start_Reason | Count | Proportion_Percentage |
+|--------------|-------|-----------------------|
+| trackdone    | 1766  | 60.65                 |
+| fwdbtn       | 580   | 19.92                 |
+| clickrow     | 217   | 7.45                  |
+| backbtn      | 146   | 5.01                  |
+| playbtn      | 106   | 3.64                  |
+| remote       | 40    | 1.37                  |
+| trackerror   | 30    | 1.03                  |
+| appload      | 27    | 0.93                  |
