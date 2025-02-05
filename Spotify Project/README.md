@@ -444,7 +444,7 @@ Output:
 | trackerror   | 30    | 1.03                  |
 | appload      | 27    | 0.93                  |
 
-A significant portion of my Drake listens appears to be passive rather than intentional. This is largely due to Spotify's autoplay feature, which automatically plays the next song after one finishes. In these cases, I'm not actively choosing to listen to Drake—I'm simply letting the music continue playing. This is most likely due to the large amount of Drake in my liked songs (my most common method of listening), thus it makes sense that a large proportion of my plays from a Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs
+A significant portion of my Drake listens appears to be passive rather than intentional. This is largely due to Spotify's autoplay feature, which automatically plays the next song after one finishes. In these cases, I'm not actively choosing to listen to Drake—I'm simply letting the music continue playing. This is most likely due to the large amount of Drake in my liked songs (my most common method of listening), thus it makes sense that a large proportion of my plays from a Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs.
 
 ```sql
 Select TOP 10 Artist, Cast(count(Track)*1.0/(SELECT COUNT(*)*1.0 
@@ -468,4 +468,27 @@ Output:
 | Meek Mill   | 1.06%                  |
 | Ed Sheeran  | 1.05%                  |
 | P Money     | 0.98%                  |
+
+Let's now take a look at my top 5 artists across the years through the lens of intentional listening.
+
+```sql
+SELECT TOP 5 Artist,Start_Reason, SUM(Milliseconds) / 60000 as Minutes_Listened
+FROM SPOTIFY
+WHERE Year IN (2020,2021,2022,2023,2024) and (Start_Reason = 'clickrow') and (Incognito_Mode = 0)
+GROUP BY Artist,Start_Reason
+ORDER BY SUM(Milliseconds) desc
+```
+
+Output:
+| Artist       | Start Reason | Minutes Listened |
+|--------------|--------------|------------------|
+| Drake        | clickrow     | 884              |
+| Headie One   | clickrow     | 801              |
+| Jason Mraz   | clickrow     | 729              |
+| K-Trap       | clickrow     | 728              |
+| Kanye West   | clickrow     | 681              |
+
+
+Filtering for only intentional plays showcases that Drake is still my top artist
+
 
