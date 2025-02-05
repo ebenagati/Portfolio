@@ -349,6 +349,8 @@ ORDER BY Month;
 ```
 
 Output visualised:
+
+
 ![image alt](https://github.com/ebenagati/Portfolio/blob/main/Spotify%20Project/2024%20Drake%20Minutes%20Listened.PNG?raw=true)
 
 Let's repeat the methodology comparison analysis for the other years.
@@ -442,7 +444,7 @@ Output:
 | trackerror   | 30    | 1.03                  |
 | appload      | 27    | 0.93                  |
 
-It is clear to see a large proportion of my listens from Drake are passive listens. To explain further Spotify has an autoplay feature such that when a song has finished, the next song is played. Due to the large amount of Drake in my liked songs, it makes sense that a large proportion of my plays from a Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs
+A significant portion of my Drake listens appears to be passive rather than intentional. This is largely due to Spotify's autoplay feature, which automatically plays the next song after one finishes. In these cases, I'm not actively choosing to listen to Drake—I'm simply letting the music continue playing. This is most likely due to the large amount of Drake in my liked songs (my most common method of listening), thus it makes sense that a large proportion of my plays from a Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs
 
 ```sql
 Select TOP 10 Artist, Cast(count(Track)*1.0/(SELECT COUNT(*)*1.0 
