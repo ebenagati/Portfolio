@@ -66,6 +66,24 @@ A snippet of data can be seen below:<br/>
 
 An additional dataset which has been retrieved from https://skiley.net will also be used in order to facilitate analysis upon my Liked Songs.
 
+| Field Name         | Description                                                               |
+|--------------------|---------------------------------------------------------------------------|
+| artistName         | Name of the artist                                                       |
+| albumArtistsNames  | Name of the artists present on the song (Includes featured artists)     |
+| albumName          | Name of album                                                            |
+| albumPopularity    |                                                                           |
+| isLikedByUser      | Binary field which indicates whether a song is liked by the user         |
+| trackDuration      | Length of the track                                                      |
+| trackUri           | Unique Identifier for track                                             |
+| trackUrl           | URL of the track                                                         |
+| trackName          | Name of the song                                                         |
+
+A snippet can be seen below:
+| artistName  | albumArtistsNames | albumName                                                   | albumPopularity | isLikedByUser | trackDuration | trackUri                               | trackUrl                                                                  | trackName                        |
+|-------------|------------------|--------------------------------------------------------------|-----------------|--------------|--------------|-----------------------------------------|--------------------------------------------------------------------------|----------------------------------|
+| Suzy        | Suzy             | While You Were Sleeping, Pt. 13 (Original Television Soundtrack) | 31              | TRUE         | 03:26:00     | spotify:track:1ZnSDGtDDta9qFNGEVoZbo  | [Track Link](https://open.spotify.com/track/1ZnSDGtDDta9qFNGEVoZbo)     | I Wanna Say To You              |
+| JANNABI     | JANNABI          | LEGEND                                                       | 50              | TRUE         | 04:57:00     | spotify:track:1deQhoZakgMT5fw0t9zliD  | [Track Link](https://open.spotify.com/track/1deQhoZakgMT5fw0t9zliD)     | dreams, books, power and walls  |
+| Central Cee | Central Cee      | CAN'T RUSH GREATNESS                                         | 75              | TRUE         | 02:02:00     | spotify:track:2Zej1ZTJJNDcRj8e8iWUUo  | [Track Link](https://open.spotify.com/track/2Zej1ZTJJNDcRj8e8iWUUo)     | Ten (feat. Skepta)              |
 
 
 # Preliminary Steps
@@ -97,6 +115,8 @@ df.to_csv('SpotifyData.csv', index=True, encoding='utf-8')
 ```
 This file is now imported into SQL Server Management Studio.<br/>
 
+The Liked Songs table does not require any Python related actions, hence this can be imported into SQL Management Studio without any preliminary actions.
+
 ## Data Cleaning
 Before we can start our data cleaning, let's perform a sense check of the data to ensure it makes sense.
 
@@ -114,7 +134,24 @@ FROM Spotify
 | 3   | 2016-08-31T11:33:23Z       | Android OS 6.0.1 API 23 (samsung, SM-G920F)        | 396045    | GB           | 86.22.242.199 | The End Scene (Bonus Track)                         | Wretch 32                         | Wretchrospective (Deluxe Edition)      | spotify:track:0FAC7wsYaAN5uKaMCsBP3Z            | NULL         | NULL              | NULL                 | NULL            | NULL          | NULL                  | NULL                     | clickrow     | endplay    | 0       | 0       | 0       | NULL              | 0              |
 | 4   | 2016-08-31T11:34:08Z       | Android OS 6.0.1 API 23 (samsung, SM-G920F)        | 45104     | GB           | 86.22.242.199 | Connect                                             | Drake                              | Nothing Was The Same - Deluxe           | spotify:track:1Sj81sMg37Hd4omn7Ow2qR            | NULL         | NULL              | NULL                 | NULL            | NULL          | NULL                  | NULL                     | clickrow     | endplay    | 0       | 0       | 0       | NULL              | 0              |
 
+```sql
+Select top 5 *
+from SpotifyLikedSongs
+```
+<br/>Output:
+| artistName  | albumArtistsNames | albumName                                                   | albumPopularity | isLikedByUser | trackDuration       | trackUri                               | trackUrl                                                                  | trackName                        |
+|-------------|------------------|--------------------------------------------------------------|-----------------|--------------|--------------------|-----------------------------------------|--------------------------------------------------------------------------|----------------------------------|
+| Suzy        | Suzy             | While You Were Sleeping, Pt. 13 (Original Television Soundtrack) | 31              | TRUE         | 03:26:00.0000000   | spotify:track:1ZnSDGtDDta9qFNGEVoZbo  | [Track Link](https://open.spotify.com/track/1ZnSDGtDDta9qFNGEVoZbo)     | I Wanna Say To You              |
+| JANNABI     | JANNABI          | LEGEND                                                       | 50              | TRUE         | 04:57:00.0000000   | spotify:track:1deQhoZakgMT5fw0t9zliD  | [Track Link](https://open.spotify.com/track/1deQhoZakgMT5fw0t9zliD)     | dreams, books, power and walls  |
+| Central Cee | Central Cee      | CAN'T RUSH GREATNESS                                         | 75              | TRUE         | 02:02:00.0000000   | spotify:track:2Zej1ZTJJNDcRj8e8iWUUo  | [Track Link](https://open.spotify.com/track/2Zej1ZTJJNDcRj8e8iWUUo)     | Ten (feat. Skepta)              |
+| Central Cee | Central Cee      | CAN'T RUSH GREATNESS                                         | 75              | TRUE         | 03:21:00.0000000   | spotify:track:25fvND4h7BT76CB77Mjsm3  | [Track Link](https://open.spotify.com/track/25fvND4h7BT76CB77Mjsm3)     | Limitless                       |
+| Central Cee | Central Cee      | CAN'T RUSH GREATNESS                                         | 75              | TRUE         | 03:02:00.0000000   | spotify:track:5tgSjvWO685Z0mYKefArMI  | [Track Link](https://open.spotify.com/track/5tgSjvWO685Z0mYKefArMI)     | CRG (feat. Dave)                |
+
+
+
+
 For ease of readability, I decide to change the field names, at this stage I can also review the data types and ensure they make sense:
+Spotify Data Table:
 | Column Name               | Data Type      |
 | ------------------------- | -------------- |
 | ID                        | int            |
@@ -142,7 +179,22 @@ For ease of readability, I decide to change the field names, at this stage I can
 | Offline_Timestamp         | nvarchar(MAX)  |
 | Incognito_Mode            | bit            |
 
-Secondly, I decided to check for null values, my check was for NULLs was based on the Artist field as this field is central to my analysis.
+Spotify Liked Songs Table:
+
+| Column Name     | Data Type       |
+|-----------------|-----------------|
+| Artist          | nvarchar(MAX)   |
+| Album_Artists   | nvarchar(MAX)   |
+| Album           | nvarchar(MAX)   |
+| Popularity      | int             |
+| Liked           | bit             |
+| Duration        | time(7)         |
+| Spotify_URI     | nvarchar(MAX)   |
+| Spotify_URL     | nvarchar(MAX)   |
+| Track           | nvarchar(MAX)   |
+
+
+Secondly, I decided to check for null values within , my check was for NULLs was based on the Artist field as this field is central to my analysis.
 
 ```sql
 SELECT Artist, COUNT(*) as Null_Count
@@ -155,7 +207,19 @@ HAVING Artist IS NULL
 :-----:|:-----:
 NULL|424
 
-<br/> Through taking a look for the data, it is clear to see that the reason for the NULLs present within the artist field is due to the fact my dataset includes podcasts data hence causing the NULLs within the Artist. 
+```sql
+SELECT Artist, COUNT(*) as Null_Count
+FROM SpotifyLikedSongs
+Group By Artist
+HAVING Artist IS NULL
+```
+
+<br/>Output:
+**Artist**|**Null\_Count**
+:-----:|:-----:
+
+
+<br/> It is clear to see that there are NULL values within the Spotify table but no NULL vaues within the SpotifyLikedSongs table. After taking a deeper look at the Spotify table, the reason for the NULLs present within the artist field of the Spotify table is due to the fact my dataset includes podcasts data hence causing the NULLs within the Artist. 
 <br/> We can check this theory through reconciling the number of NULLs with the number of rows where the episode_name is not null
 
 ```sql
@@ -181,6 +245,11 @@ Additionally we can remove the columns not useful for our analysis.
 ```sql
 ALTER TABLE Spotify 
 DROP COLUMN Episode_Name, Episode_Show_Name, Spotify_Eposide_Uri, Audiobook_Title, Audiobook_ID, Audiobook_Chapter_ID,Audiobook_Chapter_Title;
+```
+
+```sql
+ALTER TABLE SpotifyLikedSongs
+DROP COLUMN Popularity, Liked;
 ```
 
 <br/>Subsequently, I deicde to check to see if there is any duplicate rows. Before I begin querying the data I have another inspection of the data and realise that a duplicate check may not be appropriate here due to a few reasons:
