@@ -7,7 +7,7 @@ Over the years i've noticed a pattern of Drake appearing in my Top 5 Artists eve
 This project attempts to investigate my listening habits and to discover whether Drake truly deserves to be within my top 5 artists each year.
 
 ## Dataset Overview
-The dataset used for this project was colled from Spotify via requesting my Extended streaming history. The key columns can be found below.:
+The dataset used for this project was collected from Spotify via requesting my Extended streaming history. The key columns can be found below.:
 
 | Field Name                     | Description                                                                 |
 |---------------------------------|-----------------------------------------------------------------------------|
@@ -63,6 +63,10 @@ A snippet of data can be seen below:<br/>
     "offline_timestamp": 1716293700,
     "incognito_mode": false
  ```
+
+An additional dataset which has been retrieved from https://skiley.net will also be used in order to facilitate analysis upon my Liked Songs.
+
+
 
 # Preliminary Steps
 ## Data Preperation
@@ -368,3 +372,5 @@ Output:
 | remote       | 40    | 1.37                  |
 | trackerror   | 30    | 1.03                  |
 | appload      | 27    | 0.93                  |
+
+It is clear to see a large proportion of my listens from Drake are passive listens. To explain further Spotify has an autoplay feature such that when a song has finished, the next song is played. Due to the large amount of Drake in my liked songs, it makes sense that a large proportion of my plays from a Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs
