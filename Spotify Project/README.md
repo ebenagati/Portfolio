@@ -444,3 +444,26 @@ Output:
 
 It is clear to see a large proportion of my listens from Drake are passive listens. To explain further Spotify has an autoplay feature such that when a song has finished, the next song is played. Due to the large amount of Drake in my liked songs, it makes sense that a large proportion of my plays from a Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs
 
+```sql
+Select TOP 10 Artist, Cast(count(Track)*1.0/(SELECT COUNT(*)*1.0 
+                          FROM SpotifyLikedSongs)*100
+                          AS DECIMAL (5,2)) as ProporitonPercentage
+From SpotifyLikedSongs
+Group By Artist
+Order by Count(*) Desc
+```
+
+Output:
+| Artist      | Proportion Percentage |
+|-------------|------------------------|
+| Drake       | 2.13%                  |
+| Headie One  | 1.45%                  |
+| Nines       | 1.28%                  |
+| Kanye West  | 1.26%                  |
+| K-Trap      | 1.06%                  |
+| Carns Hill  | 1.06%                  |
+| Skepta      | 1.06%                  |
+| Meek Mill   | 1.06%                  |
+| Ed Sheeran  | 1.05%                  |
+| P Money     | 0.98%                  |
+
