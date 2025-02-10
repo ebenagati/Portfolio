@@ -547,6 +547,40 @@ FROM
     Spotify
 ```
 
+## How cyclical is my listening habits?
+Do I listen to more music during the summer months or do I listen to more during the winter?
+
+A sql query to output total minutes listened to within each month of each year
+```sql
+SELECT 
+    Year, 
+    CASE DATEPART(MONTH, Timestamp)
+        WHEN 1 THEN 'January'
+        WHEN 2 THEN 'February'
+        WHEN 3 THEN 'March'
+        WHEN 4 THEN 'April'
+        WHEN 5 THEN 'May'
+        WHEN 6 THEN 'June'
+        WHEN 7 THEN 'July'
+        WHEN 8 THEN 'August'
+        WHEN 9 THEN 'September'
+        WHEN 10 THEN 'October'
+        WHEN 11 THEN 'November'
+        WHEN 12 THEN 'December'
+    END AS Month,
+    SUM(Milliseconds) / 60000 AS Minutes_Listened
+FROM Spotify
+GROUP BY Year, DATEPART(MONTH, Timestamp)
+ORDER BY Year, DATEPART(MONTH, Timestamp);
+```
+A switch to python in order to create the visualisation
+<br/>
+Importing libraries
+```jyup
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 
 ## Conclusion
 
