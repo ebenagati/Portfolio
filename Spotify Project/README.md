@@ -575,11 +575,41 @@ ORDER BY Year, DATEPART(MONTH, Timestamp);
 ```
 A switch to python in order to create the visualisation
 <br/>
-Importing libraries
+Importing libraries:
 ```jyup
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+```
+
+Creation of a dictionary: 
+```jyup
+data = {
+    '2016': [155.0, 5314.0, 2712.0, 3043.0, 4587.0, 0, 0, 6815.0, 5947.0, 7009.0, 6932.0, 6454.0],
+    '2017': [6114, 7383, 9766, 6634, 6878, 7917, 9326, 6815, 5947, 7009, 6932, 6454],
+    '2018': [5662, 5548, 6337, 6327, 5586, 7313, 7098, 6488, 6048, 7548, 6526, 8103],
+    '2019': [7940, 5514, 7569, 6265, 7217, 7444, 10609, 11135, 9196, 11232, 15971, 8413],
+    '2020': [10162, 10353, 12437, 8783, 8859, 9204, 12194, 13099, 10602, 13326, 8623, 9355],
+    '2021': [12784, 12496, 9289, 12342, 11191, 8854, 9143, 11237, 12929, 13319, 11026, 10149],
+    '2022': [14461, 9675, 12356, 9377, 7328, 11017, 7932, 5117, 4917, 9239, 10576, 6721],
+    '2023': [9834, 7762, 5563, 5897, 6911, 7210, 7944, 7770, 4969, 6743, 7480, 4824],
+    '2024': [6699, 4440, 5078, 5936, 6158, 5389, 5433, 5927, 7603, 5476, 4692, 4062]
+}
+```
+
+Creation of the dataframe:
+```jyup
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+df = pd.DataFrame(data, index=months)
+```
+
+Heatmap creation:
+```jyup
+plt.figure(figsize=(10, 8))
+sns.heatmap(df, annot=True, cmap='YlOrRd', fmt=',.0f', linewidths=0.5)
+plt.title('Heatmap of Monthly Listens')
+plt.show()
+```
 
 
 ## Conclusion
