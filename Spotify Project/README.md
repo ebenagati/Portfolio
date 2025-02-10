@@ -618,7 +618,11 @@ The data demonstrates a recurring seasonal pattern with an increase in minutes l
 This particular heatmap presents an opportunity for further analysis around why specific months are so high (e.g. Novemeber 2019) which may provide some interesting insights.
 
 ## Conclusion
+This project has delved into the patterns behind my Spotify Wrapped and aims to determine whether Drake truly deserves a spot in my top 5 artists every year, despite not consciously listening to him often. Through examining my listening data across multiple years, it became clear that Drake I have underestimated the amount of Drake I listen to. 
 
+The findings showed that while Drake consistently appeared in my top artists across multiple years, the ranking varied depending on the methodology used. To be more specific, typically when considering the total minutes listened, Drake often ranked higher. Additionally, this analysis demonstrated the influence of passive listening via autoplay, which contributed significantly to Drake's presence in my top artists. The intentional listening analysis revealed that even when filtered for intentional plays, Drake remained a dominant artist. This reinforces the idea that Drake is a deeply ingrained within my listening habits.
 
+However, this analysis has faced some limitations, particularly the inconsistency in how featured artists are tracked and the uncertainty around Spotify’s exact methodology for Wrapped. These factors may have caused minor inaccuracies in my analysis, especially for the year 2022 where I approximated Spotify's methodology.
 
+In conclusion, while Drake’s consistent top placement in my Wrapped results is undoubtedly influenced by autoplay and passive listening, he still holds a strong position within my listening habits.
 
