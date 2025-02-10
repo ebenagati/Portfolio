@@ -497,15 +497,56 @@ Another limitation is not knowing Spotify's exact methodology. In the year 2022 
 ## Extension
 Through undertaking this project, I had a few thoughts of some other interesting questions I'd like answered regarding my Spotify Data.
 
-My Spotify Wrapped of all time.
+**My Spotify Wrapped of all time.**
 
-Top 5 Artists
+**Top 5 Artists**
 
-Top Songs
+```sql
+SELECT TOP 5 Artist, COUNT(*) as Plays
+FROM Spotify
+WHERE (Milliseconds >= 30000) and (Incognito_Mode = 0)
+GROUP BY Artist
+ORDER BY COUNT(*) DESC;
+```
 
-Minutes Listened
+| Artist       | Plays |
+|--------------|-------|
+| Drake        | 5717  |
+| Headie One   | 4773  |
+| Wretch 32    | 4446  |
+| K-Trap       | 4130  |
+| Kanye West   | 3979  |
 
-Top Genre
+
+**Top Songs**
+
+```sql
+SELECT TOP 5 Artist, Track, COUNT(*) as Plays
+FROM Spotify
+WHERE (Milliseconds >= 30000) and (Incognito_Mode = 0)
+GROUP BY Artist, Track
+ORDER BY COUNT(*) DESC;
+```
+
+
+| Artist       | Track                                           | Plays |
+|--------------|-------------------------------------------------|-------|
+| PJ Morton    | BUILT FOR LOVE (feat. Jazmine Sullivan)         | 261   |
+| Blade Brown   | Intro                                           | 232   |
+| Jamie Foxx    | Family                                          | 212   |
+| Wretch 32     | Open Conversation & Mark Duggan                | 205   |
+| Wretch 32     | Something                                       | 205   |
+
+**Listening Time**
+```sql
+SELECT 
+    CAST(SUM(CAST(milliseconds AS BIGINT)) / 60000.0 AS DECIMAL(10,2)) AS Minutes_Listened,
+    CAST(SUM(CAST(milliseconds AS BIGINT)) / 3600000.0 AS DECIMAL(10,2)) AS Hours_Listened,
+    CAST(SUM(CAST(milliseconds AS BIGINT)) / 86400000.0 AS DECIMAL(10,2)) AS Days_Listened
+FROM 
+    Spotify
+```
+
 
 ## Conclusion
 
