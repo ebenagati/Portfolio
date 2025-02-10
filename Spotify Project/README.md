@@ -547,9 +547,10 @@ FROM
     Spotify
 ```
 
-## How cyclical is my listening habits?
+**How cyclical is my listening habits?**
+<br/>
 Do I listen to more music during the summer months or do I listen to more during the winter?
-
+<br/>
 A sql query to output total minutes listened to within each month of each year
 ```sql
 SELECT 
