@@ -611,6 +611,11 @@ plt.title('Heatmap of Monthly Listens')
 plt.show()
 ```
 
+Output:
+![image alt](https://github.com/ebenagati/Portfolio/blob/main/Spotify%20Project/Spotify%20Minutes%20Heatmap.png)
+
+The data demonstrates a recurring seasonal pattern with an increase in minutes listened towards the middle of the year (May to August) which suggests during the summer months I listen to more music. Conversely, towards the end of year the data shows a decrease in minutes listened to. This can be explained due to the fact that my holidays usually conincide with the summer time hence I have more freetime in the summer to listen to music. Furthermore, typcially there are more releases in the summer which contribute to the increase in my listening.
+This particular heatmap presents an opportunity for further analysis around why specific months are so high (e.g. Novemeber 2019) which may provide some interesting insights.
 
 ## Conclusion
 
