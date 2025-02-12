@@ -497,10 +497,10 @@ Another limitation is not knowing Spotify's exact methodology when determining t
 ## Extension
 Through undertaking this project, I had a few thoughts of some other interesting questions I'd like answered regarding my Spotify Data.
 
-**My Spotify Wrapped of all time.**
+**My Spotify Wrapped of all time**
 
 **Top 5 Artists**
-A query to find my top 5 artists of all time using the aforementioned Spotify methodology.
+<br/>A query to find my top 5 artists of all time using the aforementioned Spotify methodology.
 
 ```sql
 SELECT TOP 5 Artist, COUNT(*) as Plays
@@ -522,7 +522,7 @@ Output:
 
 
 **Top Songs**
-A query to find my top 5 songs of all time using the aforementioned Spotify methodology.
+<br/>A query to find my top 5 songs of all time using the aforementioned Spotify methodology.
 
 ```sql
 SELECT TOP 5 Artist, Track, COUNT(*) as Plays
@@ -542,7 +542,7 @@ Output:
 | Wretch 32     | Something                                       | 205   |
 
 **Listening Time**
-A query to determine how much time i've spent listening to songs on Spotify.
+<br/>A query to determine how much time i've spent listening to songs on Spotify.
 
 
 ```sql
@@ -562,7 +562,7 @@ Output:
 <br/>
 Do I listen to more music during the summer months or do I listen to more during the winter?
 <br/>
-A sql query to output total minutes listened to within each month of each year
+A sql query to output total minutes listened to within each month of each year.
 ```sql
 SELECT 
     Year, 
@@ -585,8 +585,8 @@ FROM Spotify
 GROUP BY Year, DATEPART(MONTH, Timestamp)
 ORDER BY Year, DATEPART(MONTH, Timestamp);
 ```
-A switch to python in order to create the visualisation
-<br/>
+Subsequently, I switch to python in order to create a visualisation:
+<br/><br/>
 Importing libraries:
 ```jyup
 import pandas as pd
@@ -596,8 +596,7 @@ import matplotlib.pyplot as plt
 
 Creation of a dictionary: 
 ```jyup
-data = {
-    '2016': [155.0, 5314.0, 2712.0, 3043.0, 4587.0, 0, 0, 6815.0, 5947.0, 7009.0, 6932.0, 6454.0],
+data = {'2016': [155.0, 5314.0, 2712.0, 3043.0, 4587.0, 0, 0, 6815.0, 5947.0, 7009.0, 6932.0, 6454.0],
     '2017': [6114, 7383, 9766, 6634, 6878, 7917, 9326, 6815, 5947, 7009, 6932, 6454],
     '2018': [5662, 5548, 6337, 6327, 5586, 7313, 7098, 6488, 6048, 7548, 6526, 8103],
     '2019': [7940, 5514, 7569, 6265, 7217, 7444, 10609, 11135, 9196, 11232, 15971, 8413],
@@ -605,8 +604,8 @@ data = {
     '2021': [12784, 12496, 9289, 12342, 11191, 8854, 9143, 11237, 12929, 13319, 11026, 10149],
     '2022': [14461, 9675, 12356, 9377, 7328, 11017, 7932, 5117, 4917, 9239, 10576, 6721],
     '2023': [9834, 7762, 5563, 5897, 6911, 7210, 7944, 7770, 4969, 6743, 7480, 4824],
-    '2024': [6699, 4440, 5078, 5936, 6158, 5389, 5433, 5927, 7603, 5476, 4692, 4062]
-}
+    '2024': [6699, 4440, 5078, 5936, 6158, 5389, 5433, 5927, 7603, 5476, 4692, 4062]}
+
 ```
 
 Creation of the dataframe:
@@ -622,11 +621,13 @@ sns.heatmap(df, annot=True, cmap='YlOrRd', fmt=',.0f', linewidths=0.5)
 plt.title('Heatmap of Monthly Listens')
 plt.show()
 ```
+<br/>Output:
 
-Output:
 ![image alt](https://github.com/ebenagati/Portfolio/blob/main/Spotify%20Project/Spotify%20Minutes%20Heatmap.png)
 
-The data demonstrates a recurring seasonal pattern with an increase in minutes listened towards the middle of the year (May to August) which suggests during the summer months I listen to more music. Conversely, towards the end of year the data shows a decrease in minutes listened to. This can be explained due to the fact that my holidays usually conincide with the summer time hence I have more freetime in the summer to listen to music. Furthermore, typcially there are more releases in the summer which contribute to the increase in my listening.
+
+The data demonstrates a recurring seasonal pattern with an increase in minutes listened towards the middle of the year (May to August) which suggests during the summer months I listen to more music.<br/><br/>
+Conversely, towards the end of year the data shows a decrease in minutes listened to. This can be explained due to the fact that my holidays usually conincide with the summer time hence I have more freetime in the summer to listen to music. Furthermore, typcially there are more releases in the summer which contribute to the increase in my listening.<br/><br/>
 This particular heatmap presents an opportunity for further analysis around why specific months are so high (e.g. Novemeber 2019) which may provide some interesting insights.
 
 ## Conclusion
