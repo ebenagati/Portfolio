@@ -491,15 +491,16 @@ Output:
 
 Filtering for only intentional plays showcases that Drake is still my top artist.
 ## Limitations
-A limitation of my analysis is the lack of features being considered. Currently within my analysis it is difficult to include songs in which an artist has been featured on due to the lack of standardisation across how featured artists are presented within each row of data. For example the song 'Sicko Mode' has Drake featured however this is not shown on the track name or artist, alternatively, the song 'Used to This (feat. Drake)' clearly indicates that Drake is a feature here. Another example is 'Fountains (with Tems)' further shows this lack of standardisation. Therefore the lack of clear rules for how features are indicated has caused some inaccuracy in our analysis however I do not believe this inaccuracy will change our conclusions.
-<br/>
-Another limitation is not knowing Spotify's exact methodology. In the year 2022 where I approximated my Wrapped results based on Spotify's unconfirmed methodology, due to not knowing exactly how Spotify calculate this, my analysis may be slightly results for that year may be slightly incorrect. In addition to this, if I knew Spotify's exact methodology, this would have allowed me to create a more robust counter metholodology when devising my methodology.
+A limitation of my analysis is the songs in which Drake is featured on are not included within my analysis. Currently within my dataset it is difficult to include songs in which an artist has been featured on due to the lack of standardisation across how featured artists are presented within each row of data. For example the song 'Sicko Mode' has Drake featured on, however this is not shown on the track name or artist, alternatively, the song 'Used to This (feat. Drake)' clearly indicates that Drake is a feature here. Another example is 'Fountains (with Tems)' further shows this lack of standardisation as 'Feat' is not used, instead 'With' is used. Therefore the lack of clear rules for how features are indicated has caused some inaccuracy in our analysis however I do not believe this inaccuracy will change my conclusions.
+<br/><br/>
+Another limitation is not knowing Spotify's exact methodology when determining top artists. In the year 2022 where I approximated my Wrapped results based on Spotify's unconfirmed methodology, my analysis may be slightly results for that year may be slightly incorrect due to not following Spotify's exact methodology. In addition to this, if I knew Spotify's exact methodology, this would have allowed me to create a more robust counter metholodology when devising my methodology.
 ## Extension
 Through undertaking this project, I had a few thoughts of some other interesting questions I'd like answered regarding my Spotify Data.
 
 **My Spotify Wrapped of all time.**
 
 **Top 5 Artists**
+A query to find my top 5 artists of all time using the aforementioned Spotify methodology.
 
 ```sql
 SELECT TOP 5 Artist, COUNT(*) as Plays
@@ -508,6 +509,8 @@ WHERE (Milliseconds >= 30000) and (Incognito_Mode = 0)
 GROUP BY Artist
 ORDER BY COUNT(*) DESC;
 ```
+
+Output:
 
 | Artist       | Plays |
 |--------------|-------|
@@ -519,6 +522,7 @@ ORDER BY COUNT(*) DESC;
 
 
 **Top Songs**
+A query to find my top 5 songs of all time using the aforementioned Spotify methodology.
 
 ```sql
 SELECT TOP 5 Artist, Track, COUNT(*) as Plays
@@ -528,7 +532,7 @@ GROUP BY Artist, Track
 ORDER BY COUNT(*) DESC;
 ```
 
-
+Output:
 | Artist       | Track                                           | Plays |
 |--------------|-------------------------------------------------|-------|
 | PJ Morton    | BUILT FOR LOVE (feat. Jazmine Sullivan)         | 261   |
@@ -538,6 +542,9 @@ ORDER BY COUNT(*) DESC;
 | Wretch 32     | Something                                       | 205   |
 
 **Listening Time**
+A query to determine how much time i've spent listening to songs on Spotify.
+
+
 ```sql
 SELECT 
     CAST(SUM(CAST(milliseconds AS BIGINT)) / 60000.0 AS DECIMAL(10,2)) AS Minutes_Listened,
@@ -546,6 +553,10 @@ SELECT
 FROM 
     Spotify
 ```
+Output:
+ | Minutes_Listened | Hours_Listened | Days_Listened |
+|-----------------|---------------|--------------|
+| 813,460.83      | 13,557.68      | 564.90       |
 
 **How cyclical is my listening habits?**
 <br/>
