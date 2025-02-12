@@ -635,7 +635,7 @@ This project has delved into the patterns behind my Spotify Wrapped and aims to 
 
 The findings showed that while Drake consistently appeared in my top artists across multiple years, the ranking varied depending on the methodology used. To be more specific, typically when considering the total minutes listened, Drake often ranked higher. Additionally, this analysis demonstrated the influence of passive listening via autoplay, which contributed significantly to Drake's presence in my top artists. The intentional listening analysis revealed that even when filtered for intentional plays, Drake remained a dominant artist. This reinforces the idea that Drake is a deeply ingrained within my listening habits.
 
-However, this analysis has faced some limitations, particularly the inconsistency in how featured artists are tracked and the uncertainty around Spotify’s exact methodology for Wrapped. These factors may have caused minor inaccuracies in my analysis, especially for the year 2022 where I approximated Spotify's methodology.
+However, this analysis has faced some limitations, particularly the inconsistency in how featured artists are tracked and the uncertainty around Spotify’s exact methodology for Wrapped. These factors may have caused minor inaccuracies in my analysis.
 
 In conclusion, while Drake’s consistent top placement in my Wrapped results is undoubtedly influenced by autoplay and passive listening, he still holds a strong position within my listening habits.
 
