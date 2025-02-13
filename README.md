@@ -9,6 +9,7 @@ Throughout my career I have always loved the data analysis segments of my roles 
 - [About Me](#About-Me)
 - [Projects](#Projects)
   - [Beyond the Myths: A Data-Driven Analysis of Common Myths in Football](#beyond-the-myth:-a-data-driven-analysis-of-common-myths-in-football)
+  - [Wrapped in Mystery: Why Drake Always Makes the Cut](#Wrapped-in-Mystery:-Why-Drake-Always-Makes-the-Cut)
 - [Education](#Education)
 - [Contact](#Contact)
 
@@ -32,6 +33,21 @@ A team statistically performs better at home.<br/>
 [Beyond the Myths: A Data-Driven Analysis of Common Myths in Football](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20the%20Myths.ipynb)<br/><br/>
 **Dashboard:** <br/><br/>
 **Dashboard Analysis:** <br/>[Beyond the Myths Dashboard Insight Analysis](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20the%20Myths%20Dashboard%20Insight%20Analysis%20.md)<br/>
+
+### Wrapped in Mystery: Why Drake Always Makes the Cut
+**Aim:** <br/>
+This project investigates my listening habits and to discover whether Drake truly deserves to be within my top 5 artists each year.
+
+**Description:**
+This analysis investigates whether Drake truly deserves a spot in the my top 5 Spotify Wrapped artists by comparing Spotify’s ranking methodology with a customized approach. Additionally, I also investigate the impact of passive vs intentional listening on my Drake listening habits.
+**Technology Stack:**<br/>
+SQL, Pandas, Seaborn, Matplotlib, Excel <br/><br/>
+**Key Insights:** 
+Across the different methodologies used within the analysis, Drake consistently appears within my Top 5 Artists. However his exact position varies across the different years & differs across the methodology used. Additionally, I also discovered that a significant portion of my Drake listening habits can be attributed to passive listening.
+
+
+
+
 ## Education
 
 ### ICAS Professional Qualification (Part qualification)                                     
