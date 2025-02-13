@@ -25,7 +25,7 @@ This project explores two popular football beliefs: the 'dangerous' nature of a 
 Python, Pandas, Numpy, Matplotlib, Excel, Power BI <br/><br/>
 **Key Insights:** <br/>
 The data shows that when a team is winning 2-0 at halftime they are overwhelmingly likely to win the game - 93.4% and 89.18% respectively for Home and Away teams.<br />
-This indicates that 2-0 is not a dangerous scoreline as leading teams are very likely to finish the game with a win<br/><br/>
+This indicates that 2-0 is not a dangerous scoreline as leading teams are very likely to finish the game with a win.<br/><br/>
 Based on the following metrics: Win Rate, % of total goals scored at Home vs Away, Home Expected Goals vs Away Expected Goals, Home Shots vs Away Shots & Home Shots on Target vs Away Shots on Target.<br/>
 A team statistically performs better at home.<br/>
 
@@ -36,15 +36,15 @@ A team statistically performs better at home.<br/>
 
 ### Wrapped in Mystery: Why Drake Always Makes the Cut
 **Aim:** <br/>
-This project investigates my listening habits and to discover whether Drake truly deserves to be within my top 5 artists each year.
-
-**Description:**
-This analysis investigates whether Drake truly deserves a spot in the my top 5 Spotify Wrapped artists by comparing Spotify’s ranking methodology with a customized approach. Additionally, I also investigate the impact of passive vs intentional listening on my Drake listening habits.
+This project investigates my listening habits and to discover whether Drake truly deserves to be within my top 5 artists each year.<br/><br/>
+**Description:**<br/>
+This analysis investigates whether Drake truly deserves a spot in the my top 5 Spotify Wrapped artists by comparing Spotify’s ranking methodology with a customized approach. Additionally, I also investigate the impact of passive vs intentional listening on my Drake listening habits.<br/><br/>
 **Technology Stack:**<br/>
 SQL, Pandas, Seaborn, Matplotlib, Excel <br/><br/>
-**Key Insights:** 
-Across the different methodologies used within the analysis, Drake consistently appears within my Top 5 Artists. However his exact position varies across the different years & differs across the methodology used. Additionally, I also discovered that a significant portion of my Drake listening habits can be attributed to passive listening.
-
+**Key Insights:** <br/>
+Across the different methodologies used within the analysis, Drake consistently appears within my Top 5 Artists. However his exact position varies across the different years & differs across the methodology used. Additionally, I also discovered that a significant portion of my Drake listening habits can be attributed to passive listening.<br/><br/>
+**Code:** <br/>
+[Wrapped in Mystery: Why Drake Always Makes the Cut](https://github.com/ebenagati/Portfolio/blob/main/Wrapped%20in%20Mystery%3A%20Why%20Drake%20Always%20Makes%20the%20Cut/README.md)<br/><br/>
 
 
 
