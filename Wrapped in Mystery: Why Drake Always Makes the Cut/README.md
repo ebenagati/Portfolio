@@ -351,7 +351,7 @@ ORDER BY Month;
 Output visualised:
 
 
-![image alt](https://github.com/ebenagati/Portfolio/blob/main/Spotify%20Project/2024%20Drake%20Minutes%20Listened.PNG?raw=true)
+![image alt](https://github.com/ebenagati/Portfolio/blob/main/Wrapped%20in%20Mystery%3A%20Why%20Drake%20Always%20Makes%20the%20Cut/2024%20Drake%20Minutes%20Listened.PNG)
 
 Let's repeat the methodology comparison analysis for the other years.
 
@@ -623,7 +623,7 @@ plt.show()
 ```
 <br/>Output:
 
-![image alt](https://github.com/ebenagati/Portfolio/blob/main/Spotify%20Project/Spotify%20Minutes%20Heatmap.png)
+![image alt](https://github.com/ebenagati/Portfolio/blob/main/Wrapped%20in%20Mystery%3A%20Why%20Drake%20Always%20Makes%20the%20Cut/Spotify%20Minutes%20Heatmap.png)
 
 
 The data demonstrates a recurring seasonal pattern with an increase in minutes listened towards the middle of the year (May to August) which suggests during the summer months I listen to more music.<br/><br/>
