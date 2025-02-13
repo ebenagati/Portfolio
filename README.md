@@ -35,7 +35,9 @@ A team statistically performs better at home.<br/>
 [Beyond the Myths Dashboard ](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20The%20Myths/Beyond%20the%20Myths%20Dashboard.PNG) <br/>
 [Beyond the Myths Dashboard Man City Slicer](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20The%20Myths/Beyond%20the%20Myths%20Dashboard%20Man%20City.PNG) <br/><br/>
 **Dashboard Analysis:** <br/>
-[Beyond the Myths Dashboard Insight Analysis](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20The%20Myths/Beyond%20the%20Myths%20Dashboard%20Insight%20Analysis%20.md)<br/>
+[Beyond the Myths Dashboard Insight Analysis](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20The%20Myths/Beyond%20the%20Myths%20Dashboard%20Insight%20Analysis%20.md)<br/><br/>
+**Appendix:** <br/>
+[Appendix](https://github.com/ebenagati/Portfolio/blob/main/Beyond%20The%20Myths/Appendix%20.md)<br/>
 
 ### Wrapped in Mystery: Why Drake Always Makes the Cut
 **Aim:** <br/>
