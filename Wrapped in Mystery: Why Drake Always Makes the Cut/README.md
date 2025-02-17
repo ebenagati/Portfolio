@@ -151,7 +151,7 @@ from SpotifyLikedSongs
 
 
 For ease of readability, I decide to change the field names, at this stage I can also review the data types and ensure they make sense:
-<br/>Spotify Data Table:
+**<br/><br/>Spotify Data Table:**
 | Column Name               | Data Type      |
 | ------------------------- | -------------- |
 | ID                        | int            |
@@ -179,7 +179,7 @@ For ease of readability, I decide to change the field names, at this stage I can
 | Offline_Timestamp         | nvarchar(MAX)  |
 | Incognito_Mode            | bit            |
 
-Spotify Liked Songs Table:
+**Spotify Liked Songs Table:**
 
 | Column Name     | Data Type       |
 |-----------------|-----------------|
@@ -194,12 +194,13 @@ Spotify Liked Songs Table:
 | Track           | nvarchar(MAX)   |
 
 
-Secondly, I decided to check for null values within , my check was for NULLs was based on the Artist field as this field is central to my analysis.
+Secondly, I decided to check for null values on the Artist & Milliseconds field as these fields are both central to my analysis.
 
+<br/>Query:
 ```sql
 SELECT Artist, COUNT(*) as Null_Count
 FROM Spotify
-Group By Artist
+GROUP BY Artist
 HAVING Artist IS NULL
 ```
 <br/>Output:
@@ -207,10 +208,23 @@ HAVING Artist IS NULL
 :-----:|:-----:
 NULL|424
 
+<br/>Query:
+```sql
+SELECT Milliseconds, COUNT(*) as Null_Count
+FROM Spotify
+GROUP BY Milliseconds
+HAVING Milliseconds IS NULL
+```
+
+<br/>Output:
+**Milliseconds**|**Null\_Count**
+:-----:|:-----:
+
+<br/>Query:
 ```sql
 SELECT Artist, COUNT(*) as Null_Count
 FROM SpotifyLikedSongs
-Group By Artist
+GROUP BY Artist
 HAVING Artist IS NULL
 ```
 
@@ -219,9 +233,11 @@ HAVING Artist IS NULL
 :-----:|:-----:
 
 
-<br/> It is clear to see that there are NULL values within the Spotify table but no NULL vaues within the SpotifyLikedSongs table. After taking a deeper look at the Spotify table, the reason for the NULLs present within the artist field of the Spotify table is due to the fact my dataset includes podcasts data hence causing the NULLs within the Artist. 
-<br/> We can check this theory through reconciling the number of NULLs with the number of rows where the episode_name is not null
+<br/> <br/>It is clear to see that there are null values within the Artists field in the Spotify table but no null vaues within the SpotifyLikedSongs table.
+<br/><br/>After taking a deeper look at the Spotify table, the reason for the null values present within the the Spotify table is due to the fact my dataset includes Podcast data hence causing the nulls within the Artist field. 
+<br/><br/> I can check this theory through reconciling the number of nulls with the number of rows where the episode_name is not null.
 
+<br/>Query:
 ```sql
 SELECT Count(*) As Null_Podcasts
 FROM Spotify
@@ -232,6 +248,9 @@ WHERE Episode_Name IS NOT NULL
 :-----:
 424
 
+<br/>Subsequently, the nulls are removed from the dataset.
+
+<br/>Query:
 ```sql
 DELETE FROM Spotify
 WHERE Artist is NULL
@@ -241,7 +260,7 @@ WHERE Artist is NULL
 <br/>*(424 rows affected)
 <br/>Completion time: 2025-01-28T16:07:28.0616267+00:00*
 
-Additionally we can remove the columns not useful for our analysis.
+<br/><br/>Additionally we can remove the columns not useful for our analysis.
 ```sql
 ALTER TABLE Spotify 
 DROP COLUMN Episode_Name, Episode_Show_Name, Spotify_Eposide_Uri, Audiobook_Title, Audiobook_ID, Audiobook_Chapter_ID,Audiobook_Chapter_Title;
@@ -252,13 +271,14 @@ ALTER TABLE SpotifyLikedSongs
 DROP COLUMN Popularity, Liked;
 ```
 
-<br/>Subsequently, I deicde to check to see if there is any duplicate rows. Before I begin querying the data I have another inspection of the data and realise that a duplicate check may not be appropriate here due to a few reasons:
-- The spotify_track_uri holds the unique track ID's however due to the fact tracks can be listened multiple times, this alone would not be appropriate
-- A combination of spotify_track_uri & a timestamp for example cannot be used due to the fact the timestamps are not unique. This is because of Spotify's offline mode which allows music to be listened when a device is not connected to the internet. Music listened through this method are still documented however, the record of the user listening to these offline songs receive the timestamp of when device has re-connected to the internet hence creating the possibility of multiple duplicate timestamps
+<br/> I then deicde to check to see if there is any duplicate rows. 
+<br/><br/>Before I begin querying the data I have another inspection of the data and realise that a duplicate check may not be appropriate here due to a few reasons:<br/>
+- The spotify_track_uri holds the unique track ID's however due to the fact tracks can be listened multiple times, this alone would not be appropriate.
+- A combination of spotify_track_uri & a timestamp for example cannot be used due to the fact the timestamps are not unique. This is because of Spotify's offline mode which allows music to be listened to when a device is not connected to the internet. Music listened through this method are still documented however, the record of the user listening to these offline songs receive the timestamp of when device has re-connected to the internet hence creating the possibility of multiple duplicate timestamps
 
 ## Spotify's Methodology
 Let’s take a look at Spotifys methodology.
-<br/>Spotify Wrapped's methodology used to calculate the top 5 artists is based on the following:
+<br/><br/>Spotify Wrapped's methodology used to calculate the top 5 artists is based on the following:
 -   Top Artists are determined by the number of streams an artist receives within the date period.
 -	Date period includes January to an unspecified date within November.
 -	For a song to count as a stream it must be listened to for at least 30 seconds.
