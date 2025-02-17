@@ -105,7 +105,7 @@ file_path = r"C:\Users\Eben\Documents\SQL Project\Spotify\*.json"
 all_files = glob.glob(file_path)
 df_list = [pd.read_json(file) for file in all_files]
 ```
-<br/>Concatenation of fields is performed here:
+<br/>Concatenation is performed here:
 ```jyup
 df = pd.concat(df_list, ignore_index=True)
 ```
@@ -118,7 +118,7 @@ This file is now imported into SQL Server Management Studio.<br/>
 The Liked Songs table does not require any Python related actions, hence this can be imported into SQL Management Studio without any preliminary actions.
 
 ## Data Cleaning
-Before we can start our data cleaning, let's perform a sense check of the data to ensure it makes sense.
+Before I can start the data cleaning, I perform a sense check of the data to ensure it makes sense.
 
 ```sql
 Select top 5 *
@@ -151,7 +151,7 @@ from SpotifyLikedSongs
 
 
 For ease of readability, I decide to change the field names, at this stage I can also review the data types and ensure they make sense:
-Spotify Data Table:
+<br/>Spotify Data Table:
 | Column Name               | Data Type      |
 | ------------------------- | -------------- |
 | ID                        | int            |
