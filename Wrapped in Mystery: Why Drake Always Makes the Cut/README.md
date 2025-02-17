@@ -3,11 +3,11 @@
 ## Problem Statement 
 There's a few things that are guaranteed in life, death, taxes and Drake being within my spotify wrapped. <br/><br/>
 Spotify Wrapped is a yearly summary of listening habits that Spotify provide to it's users. This wrap up shows a user's Top 5 Artists, Top 5 Genres, Top 5 Songs and the amount of minutes of Spotify listened to across the year.<br/>
-Over the years i've noticed a pattern of Drake appearing in my Top 5 Artists every year despite me not choosing to listen to Drake very often within certain years.<br/><br/>
+Over the years i've noticed a pattern of Drake appearing in my Top 5 Artists every year despite me believing that I do not listen to that much Drake.<br/><br/>
 This project attempts to investigate my listening habits and to discover whether Drake truly deserves to be within my top 5 artists each year.
 
 ## Dataset Overview
-The dataset used for this project was collected from Spotify via requesting my Extended streaming history. The key columns can be found below.:
+The dataset used for this project was collected from Spotify via requesting my Extended streaming history. The key columns can be found below:
 
 | Field Name                     | Description                                                                 |
 |---------------------------------|-----------------------------------------------------------------------------|
@@ -16,11 +16,11 @@ The dataset used for this project was collected from Spotify via requesting my E
 | platform                        | Platform used when streaming the track (e.g. Android OS, iOS)               |
 | ms_played                       | Number of Milliseconds the track was played for                              |
 | conn_country                    | Country where the song was played                                            |
-| ip_addr                         | IP address logged when the track is streamed                                |
+| ip_addr                         | IP address logged when the track was streamed                                |
 | master_metadata_track_name      | Song name                                                                    |
 | master_metadata_album_artist_name| Artist name of the song played                                               |
 | master_metadata_album_album_name | Album name of the song played                                                |
-| spotify_track_uri               | Spotify's unique identifier for track names                                  |
+| spotify_track_uri               | Spotify's unique identifier for each track                                  |
 | episode_name                    | Name of the episode of the podcast                                           |
 | episode_show_name               | Name of the podcast                                                          |
 | spotify_episode_uri             | Spotify's unique identifier for podcast episodes                             |
@@ -30,7 +30,7 @@ The dataset used for this project was collected from Spotify via requesting my E
 | audiobook_chapter_title         | Name of Audiobook chapter                                                    |
 | reason_start                    | Reason for song starting                                                     |
 | reason_end                      | Reason for song ending                                                       |
-| shuffle                         | True or False field whether shuffle mode was on                              |
+| shuffle                         | True or False field indicating whether shuffle mode was on                              |
 | skipped                         | Indicates whether the user skipped the song                                  |
 | offline                         | Indicates whether the track was played in offline mode or not               |
 | offline_timestamp               | Timestamp of when offline mode was used                                      |
@@ -69,9 +69,9 @@ An additional dataset which has been retrieved from https://skiley.net will also
 | Field Name         | Description                                                               |
 |--------------------|---------------------------------------------------------------------------|
 | artistName         | Name of the artist                                                       |
-| albumArtistsNames  | Name of the artists present on the song (Includes featured artists)     |
+| albumArtistsNames  | Name of the artists credited on the |
 | albumName          | Name of album                                                            |
-| albumPopularity    |                                                                           |
+| albumPopularity    | Indicates the popularity of the album at the time. with 100 being the most popular album recently |
 | isLikedByUser      | Binary field which indicates whether a song is liked by the user         |
 | trackDuration      | Length of the track                                                      |
 | trackUri           | Unique Identifier for track                                             |
