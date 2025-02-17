@@ -290,9 +290,9 @@ Before diving into my analysis, I think it's important to understand how Spotify
 <br/><br/>Typically, the month of December is missed out which can cause an inaccurate view of the data; for example artists who primarily make Christmas related music are very unlikely to be within a Spotify Wrapped due to the fact the month in which their music has the highest streams are not included in Spotify Wrapped.
 <br/><br/>Additionally, top artists are determined by how many times they have been played rather than the amount of time they have been listened to over the period. I believe that there are a number of limitations with this method of determing the top artists which can be seen below.
 - Genres with naturally shorter track lengths such as pop would have an advantage over those with longer formats such as classical.
-- Based on knowing my listening habits, its not uncommon for me to only listen to a song for a short about of time and then press next hence my short term listening habits will skew my top artists
+- Based on knowing my listening habits, its not uncommon for me to only listen to a song for a short about of time and then press next. In other words, I may listen to an artist often but not for very long hence my short term listening habits will skew my top artists. 
 
-I believe my top artist should be the artist that I have spent the most time listening to rather than the artist who I have played the most often as listening to an artist for a longer amount of time shows a deeper level of engagement versus.
+I believe my top artist should be the artist that I have spent the most time listening to rather than the artist who I have played the most often as listening to an artist for a longer amount of time demonstrates a deeper level of engagement.
 
 ## Analysis
 In order to address the problem statement, I will use the below metholodology to analyse whether Drake truly deserves a spot in my top 5 artists across the last 5 years:
