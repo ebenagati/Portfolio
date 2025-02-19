@@ -296,14 +296,16 @@ I believe my top artist should be the artist that I have spent the most time lis
 
 ## Analysis
 In order to address the problem statement, I will use the below metholodology to analyse whether Drake truly deserves a spot in my top 5 artists across the last 5 years:
-- Date period will be across a full year
-- Top Artists are determined by how long they have been played within the year
-- Songs listened to via incognito mode do not count
-- Songs listened to via offline mode are counted
+- Date period will be across a full year.
+- Top Artists are determined by how long they have been played within the year.
+- Songs listened to via incognito mode do not count.
+- Songs listened to via offline mode are counted.
 Subsequently, I will compare the results from Spotify's methodology top 5 artists versus the top 5 artists from my above methodology
 
 ### 2024
 I will use the below query to extract the top 5 artists based on my methodology:
+
+<br/>Query:
 ```sql
 SELECT TOP 5 Artist, Year, SUM(Milliseconds) / 60000 as Minutes_Listened
 FROM Spotify
@@ -332,33 +334,37 @@ Now let's compare this to Spotify Wrapped's results:
 | 4        | Bashy                       | Headie One            | 2024 |
 | 5        | Future                      | Ed Sheeran            | 2024 |
 
-My methodology shows Drake as my #1 artist based on how many minutes i've listened to him.
-2024 is particularly an interesting year as a lot of my Drake plays are concentrated around a few songs.
+My methodology shows Drake as my #1 artist. 
+<br/><br/>This demonstrates that in addition to listening to Drake quite often, I am also listening to him for relatively long time. 
+<br/><br/> I believe that my Drake listening habits in 2024 can be explained by my listening being concentrated around a specific few songs.
+<br/> In order to test this hypothesis, I will run the below query to determine my most popular songs.
 
+<br/>Query:
 ```sql
-SELECT top 5 Artist, Track, Count(Track) as Plays, Cast(Count(Track)*1.0/(SELECT COUNT(*)*1.0 
+SELECT top 5 Artist, Track, SUM(Milliseconds)/60000 as Minutes_Listened, Cast(SUM(Milliseconds)*1.0/(SELECT SUM(Milliseconds)*1.0 
                           FROM Spotify 
                           WHERE Artist = 'Drake' 
                           AND Year = '2024' 
-                          AND Milliseconds > 30000)*100 AS Decimal(5,2)) AS Proportion_Percentage
+                         AND Incognito_Mode = 0)*100 AS Decimal(5,2)) AS Proportion_Percentage
 FROM Spotify
-WHERE Artist ='Drake' and year = '2024' and Milliseconds > 30000 and Incoginito_Mode = 0
+WHERE Artist ='Drake' and year = '2024' and Incognito_Mode = 0
 GROUP BY Artist, Track
-Order By Count(Track) desc
+ORDER BY SUM(Milliseconds) desc
 ```
 Output:
+| Artist | Track                                 | Minutes Listened | Proportion Percentage |
+|--------|--------------------------------------|------------------|-----------------------|
+| Drake  | Family Matters                      | 288              | 17.47%                |
+| Drake  | Push Ups                            | 87               | 5.28%                 |
+| Drake  | Diplomatic Immunity                 | 50               | 3.03%                 |
+| Drake  | First Person Shooter (feat. J. Cole) | 31               | 1.91%                 |
+| Drake  | Back To Back                        | 29               | 1.80%                 |
 
-| Artist | Track                                      | Plays | Proportion Percentage |
-|--------|---------------------------------------------|-------|-----------------------|
-| Drake  | Family Matters                             | 42    | 9.40                  |
-| Drake  | Push Ups                                    | 24    | 5.37                  |
-| Drake  | Diplomatic Immunity                         | 13    | 2.91                  |
-| Drake  | Back To Back                                | 11    | 2.46                  |
-| Drake  | First Person Shooter (feat. J. Cole)        | 10    | 2.24                  |
+Within 2024, there was a musical conflict between Drake & Kendrick Lamar, as someone who found this conflict quite entertaining, this influenced my Drake listening habits massively.
+<br/><br/>The two songs that relate to the conflict were Family Matters and Push Ups, the above table demonstrates how much the two songs relatively dominated my Drake listening habits. 
+<br/><br/>Additionally, if I look at the timestamps in which I listened to Drake, I can see that there is a spike in my Drake listening habits in the month of May which was the peak of the conflict.
 
-
-The two songs that relate to the conflict were Family Matters and Push Ups, the above table demonstrates how much the two songs relatively dominated my Drake listening habits. Additionally, if we look at the timestamps we can see that there is a spike in my Drake listening habits in the month of May which was the peak of the conflict.
-
+<br/>Query:
 ```sql
 SELECT 
     DATEPART(MONTH, Timestamp) AS Month, 
