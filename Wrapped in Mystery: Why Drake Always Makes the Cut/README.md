@@ -391,6 +391,50 @@ Let's repeat the methodology comparison analysis for the other years.
 | 4        | Rod Wave                    | Jason Mraz            | 2023 |
 | 5        | J Hus                       | Rod Wave              | 2023 |
 
+In 2023 it can be seen that Drake's position has fallen has in My Methodology's results while he maintained his position in Spotify's Methodology. 
+This is quite an interesting result as in 2023 I actually listened to more Drake than in 2024 which was discovered via the below query:
+
+
+<br/>Query:
+```sql
+SELECT Year, Artist, SUM(Milliseconds)/60000
+FROM Spotify
+WHERE Artist = 'Drake' and Year IN (2019,2020,2021,2022,2023,2024)
+GROUP BY Year, Artist
+ORDER BY SUM(Milliseconds) desc
+```
+
+An interpreation of this I have listened to more Ed Sheeran relative to Drake in 2023 
+
+One possible reason for this is the fact that I listened to more Ed Shee
+It can be noted that within this year there is a more equal distribution of time spent listening to specific songs relative to 2024.
+
+<br/>Query:
+```sql
+SELECT top 5 Artist, Track, SUM(Milliseconds)/60000 as Minutes_Listened, Cast(SUM(Milliseconds)*1.0/(SELECT SUM(Milliseconds)*1.0 
+                          FROM Spotify 
+                          WHERE Artist = 'Drake' 
+                          AND Year = '2023' 
+                         AND Incognito_Mode = 0)*100 AS Decimal(5,2)) AS Proportion_Percentage
+FROM Spotify
+WHERE Artist ='Drake' and year = '2023' and Incognito_Mode = 0
+GROUP BY Artist, Track
+ORDER BY SUM(Milliseconds) desc
+```
+
+Output:
+| Artist | Track                  | Minutes Listened | Proportion (%) |
+|--------|------------------------|------------------|---------------|
+| Drake  | From Time              | 91               | 4.22          |
+| Drake  | On The Radar Freestyle | 86               | 4.00          |
+| Drake  | IDGAF (feat. Yeat)     | 52               | 2.41          |
+| Drake  | Redemption             | 51               | 2.36          |
+| Drake  | Fire & Desire          | 45               | 2.12          |
+
+It is quite challenging to 
+
+
+
 ### 2022
 Due to the fact Spotify do not allow you to see your Wrapped from previous years, 2022 is the only year I do not have Spotify Wrapped data for hence, based on Spotify's methodology, I will run a query to emulate their results.
 
