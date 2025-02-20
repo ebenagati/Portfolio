@@ -392,8 +392,7 @@ Let's repeat the methodology comparison analysis for the other years.
 | 5        | J Hus                       | Rod Wave              | 2023 |
 
 In 2023 it can be seen that Drake's position has fallen has in My Methodology's results while he maintained his position in Spotify's Methodology. 
-This is quite an interesting result as in 2023 I actually listened to more Drake than in 2024 which was discovered via the below query:
-
+<br/><br/>This is quite an interesting result as in 2023 I actually listened to more Drake than in 2024 which was discovered via the below query:
 
 <br/>Query:
 ```sql
@@ -404,10 +403,11 @@ GROUP BY Year, Artist
 ORDER BY SUM(Milliseconds) desc
 ```
 
-An interpreation of this I have listened to more Ed Sheeran relative to Drake in 2023 
+Output Visualised:
 
-One possible reason for this is the fact that I listened to more Ed Shee
-It can be noted that within this year there is a more equal distribution of time spent listening to specific songs relative to 2024.
+This result demonstrates that although I listened to more Drake in 2023, my Drake listening habits relative to other artists fell hence the fall in placement from #1 to #2.
+
+Additionally, it can be noted that within this year there is a more equal distribution of time spent listening to specific songs relative to 2024.
 
 <br/>Query:
 ```sql
@@ -431,7 +431,7 @@ Output:
 | Drake  | Redemption             | 51               | 2.36          |
 | Drake  | Fire & Desire          | 45               | 2.12          |
 
-It is quite challenging to 
+This result showcases that without the presence of a conflict, my Drake listening habits is a lot less skewed by certain songs.
 
 
 
