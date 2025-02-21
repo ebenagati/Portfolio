@@ -664,14 +664,17 @@ The data demonstrates that when filtering for intentional listening, Drake is st
 A potential limitation of my analysis is the songs in which Drake is featured on are not included within my analysis.
 
 Currently within my dataset it is difficult to include songs in which an artist has been featured on due to the lack of standardisation across how featured artists are presented within each row of data. 
+
 For example the song 'Sicko Mode' has Drake featured on, however this is not shown on the track name field or artist field, alternatively, the song 'Used to This (feat. Drake)' clearly indicates that Drake is a feature here. 
 
 Another example is 'Fountains (with Tems)' further shows this lack of standardisation as 'Feat' is not used here , instead 'With' is used. 
+
 Therefore the lack of clear rules for how features are indicated has caused some inaccuracy in my analysis however I do not believe this inaccuracy will change my conclusions.
 
 Another limitation is not knowing Spotify's exact methodology when determining top artists. 
 
 In the year 2022 where I approximated my Wrapped results based on Spotify's unconfirmed methodology, my analysis may be slightly incorrect due to not following Spotify's exact methodology. 
+
 In addition to this, if I knew Spotify's exact methodology, this would have allowed me to create a more robust counter metholodology when devising my methodology.
 
 ## Extension
