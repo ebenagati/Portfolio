@@ -586,7 +586,8 @@ Within my dataset I have the column Start_Reason which provides interesting insi
 | appload     | Spotify starts playing a track automatically upon opening the app, such as resuming playback from a previous session. |
 
 <br/>I will now breakdown Drake plays across the last 5 years:
-<br/>Query:
+
+Query:
 ```sql
 Select Start_Reason, Count(Start_Reason) as Count, CAST(Count(Start_Reason)*1.0/(SELECT COUNT(Start_Reason)*1.0 
                           FROM Spotify 
