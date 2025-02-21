@@ -404,7 +404,7 @@ ORDER BY SUM(Milliseconds) desc
 ```
 
 Output Visualised:
-![image alt](https://github.com/ebenagati/Portfolio/blob/main/Wrapped%20in%20Mystery%3A%20Why%20Drake%20Always%20Makes%20the%20Cut/Minutes%20Listened%20to%20Drake%20Across%20Years.PNG)
+![image alt](https://github.com/ebenagati/Portfolio/blob/main/Wrapped%20in%20Mystery%3A%20Why%20Drake%20Always%20Makes%20the%20Cut/Minutes%20Listened%20to%20Drake%202020-2024.PNG)
 
 
 This result demonstrates that although I listened to more Drake in 2023, my Drake listening habits relative to other artists fell hence the fall in placement from #1 to #2.
@@ -497,6 +497,7 @@ In 2021 Drake has returned into my top 5 artists in both methodologies.
 <br/><br/>The concept of favourite songs are further demonstrated in 2021.
 
 <br/>Query:
+```sql
 SELECT top 5 Artist, Track, SUM(Milliseconds)/60000 as Minutes_Listened, Cast(SUM(Milliseconds)*1.0/(SELECT SUM(Milliseconds)*1.0 
                           FROM Spotify 
                           WHERE Artist = 'Drake' 
@@ -529,7 +530,46 @@ The four songs 'In The Bible (with Lil Durk & Giveon)', 'From Time', 'Fire & Des
 | 4        | Snoh Aalegra                | Drake                 | 2020 |
 | 5        | PJ Morton                    | PJ Morton             | 2020 |
 
-Across the years, Drake has a strong presence irregardless of the methodology except within 2022. However this was quite a surface level analysis. Let's take this analysis a step further and understand the reasons as to why Drake was played.
+In 2020, Drake is present at 3rd and 4th within the respective methodologies. 
+The top 5 Drake songs include the usual suspects of  'From Time', 'Fire & Desire' & 'Pound Cake / Paris Morton Music 2'
+
+<br/>Query:
+```sql
+SELECT top 5 Artist, Track, SUM(Milliseconds)/60000 as Minutes_Listened, Cast(SUM(Milliseconds)*1.0/(SELECT SUM(Milliseconds)*1.0 
+                          FROM Spotify 
+                          WHERE Artist = 'Drake' 
+                          AND Year = '2020' 
+                         AND Incognito_Mode = 0)*100 AS Decimal(5,2)) AS Proportion_Percentage
+FROM Spotify
+WHERE Artist ='Drake' and year = '2020' and Incognito_Mode = 0
+GROUP BY Artist, Track
+ORDER BY SUM(Milliseconds) desc
+```
+
+Output:
+| Artist | Track | Minutes Listened | Proportion Percentage |
+|--------|------------------------------------------|----------------|----------------------|
+| Drake  | From Time                               | 88             | 3.82%                |
+| Drake  | Pound Cake / Paris Morton Music 2      | 70             | 3.01%                |
+| Drake  | Toosie Slide                           | 65             | 2.80%                |
+| Drake  | Fire & Desire                          | 63             | 2.72%                |
+| Drake  | After Dark (feat. Static Major & Ty Dolla $ign) | 53 | 2.30%                |
+
+
+To summarise, across the years, Drake has a strong presence irregardless of the methodology except within 2022.
+
+This analysis has allowed me to see the effects of external music events such as the Drake and Kendrick Lamar conflict on my listening habits as demonstrated by the Drake's domination of my listening habits in 2024.
+
+Furthermore, this analysis also helped my identify which songs form a core part of my Drake listening habits through particular songs appearing consistently across the years.
+
+Drake's average position across the years for both methodologies was #4 which indicates that Drake isn't my most listened to artist over the period but he still has a strong presence in my listening habits. 
+
+A visualisation of Drake's position can be seen below@
+
+
+
+
+. However this was quite a surface level analysis. In the next section, I will take this analysis a step further and understand the reasons as to why Drake was played.
 <br/><br/>
 Within our dataset we have the column Start_Reason which provides interesting insights as to why a song was played. Below is the list of reasons.
 
