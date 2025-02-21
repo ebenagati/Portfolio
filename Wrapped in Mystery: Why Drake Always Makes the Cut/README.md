@@ -782,6 +782,7 @@ SELECT
 FROM 
     Spotify
 ```
+
 Output:
  | Minutes_Listened | Hours_Listened | Days_Listened |
 |-----------------|---------------|--------------|
