@@ -404,6 +404,8 @@ ORDER BY SUM(Milliseconds) desc
 ```
 
 Output Visualised:
+![image alt](https://github.com/ebenagati/Portfolio/blob/main/Wrapped%20in%20Mystery%3A%20Why%20Drake%20Always%20Makes%20the%20Cut/Minutes%20Listened%20to%20Drake%20Across%20Years.PNG)
+
 
 This result demonstrates that although I listened to more Drake in 2023, my Drake listening habits relative to other artists fell hence the fall in placement from #1 to #2.
 
@@ -446,7 +448,6 @@ GROUP BY Artist, Year
 ORDER BY COUNT(*) DESC;
 ```
 
-
 | Position | Spotify Methodology Artist | My Methodology Artist | Year |
 |----------|-----------------------------|-----------------------|------|
 | 1        | Blade Brown                 | PJ Morton             | 2022 |
@@ -455,6 +456,32 @@ ORDER BY COUNT(*) DESC;
 | 4        | Adele                        | K-Trap                | 2022 |
 | 5        | Jason Mraz                   | Jason Mraz            | 2022 |
 
+In 2022, my Drake listening habits was at it's lowest point. This is also reflected by the lack of Drake's presence in my top 5 across both methodologies. In fact Drakes position in both methodologies was #9.
+<br/><br/>In terms of the distribution of songs top songs, the proportions of the songs are fairly similar to 2023 albeit different songs are within my top 5.
+
+<br/>Query:
+```sql
+SELECT top 5 Artist, Track, SUM(Milliseconds)/60000 as Minutes_Listened, Cast(SUM(Milliseconds)*1.0/(SELECT SUM(Milliseconds)*1.0 
+                          FROM Spotify 
+                          WHERE Artist = 'Drake' 
+                          AND Year = '2022' 
+                         AND Incognito_Mode = 0)*100 AS Decimal(5,2)) AS Proportion_Percentage
+FROM Spotify
+WHERE Artist ='Drake' and year = '2022' and Incognito_Mode = 0
+GROUP BY Artist, Track
+ORDER BY SUM(Milliseconds) desc
+```
+
+Output:
+| Artist | Track | Minutes_Listened | Proportion_Percentage |
+|--------|--------------------------------|------------------|--------------------|
+| Drake  | In The Bible (with Lil Durk & Giveon) | 67 | 4.70% |
+| Drake  | Pound Cake / Paris Morton Music 2 | 41 | 2.86% |
+| Drake  | From Time | 36 | 2.52% |
+| Drake  | Fire & Desire | 35 | 2.48% |
+| Drake  | Rich Flex | 25 | 1.79% |
+
+An interesting insight that can be seen here is that both 'From Time' & 'Fire & Desire' appear within my top 5 songs in both 2022 and 2023, this gives an indication that these two are among my favourite Drake songs as they regularly appear in my top 5 Drake songs of the year.
 
 ### 2021
 
@@ -466,6 +493,32 @@ ORDER BY COUNT(*) DESC;
 | 4        | Jason Mraz                  | Drake                 | 2021 |
 | 5        | Pop Smoke                   | Owl City              | 2021 |
 
+In 2021 Drake has returned into my top 5 artists in both methodologies.
+<br/><br/>The concept of favourite songs are also demonstrated in 2021.
+
+<br/>Query:
+SELECT top 5 Artist, Track, SUM(Milliseconds)/60000 as Minutes_Listened, Cast(SUM(Milliseconds)*1.0/(SELECT SUM(Milliseconds)*1.0 
+                          FROM Spotify 
+                          WHERE Artist = 'Drake' 
+                          AND Year = '2021' 
+                         AND Incognito_Mode = 0)*100 AS Decimal(5,2)) AS Proportion_Percentage
+FROM Spotify
+WHERE Artist ='Drake' and year = '2021' and Incognito_Mode = 0
+GROUP BY Artist, Track
+ORDER BY SUM(Milliseconds) desc
+```
+
+Output:
+| Artist | Track | Minutes_Listened | Proportion_Percentage |
+|--------|----------------------------------------------|------------------|--------------------|
+| Drake  | In The Bible (with Lil Durk & Giveon)      | 163              | 5.83%              |
+| Drake  | From Time                                  | 138              | 4.94%              |
+| Drake  | Fire & Desire                              | 92               | 3.29%              |
+| Drake  | Knife Talk (with 21 Savage ft. Project Pat) | 77               | 2.75%              |
+| Drake  | Pound Cake / Paris Morton Music 2         | 65               | 2.32%              |
+
+
+The four songs 'In The Bible (with Lil Durk & Giveon)', 'From Time', 'Fire & Desire' & 'Pound Cake / Paris Morton Music 2' appear in my top 5 songs within both 2021 & 2022 which further emphasize that these are some of my favourite Drake songs.
 
 ### 2020
 | Position | Spotify Methodology Artist | My Methodology Artist | Year |
