@@ -586,7 +586,7 @@ Within my dataset I have the column Start_Reason which provides interesting insi
 | appload     | Spotify starts playing a track automatically upon opening the app, such as resuming playback from a previous session. |
 
 <br/>I will now breakdown Drake plays across the last 5 years:
-
+<br/>Query:
 ```sql
 Select Start_Reason, Count(Start_Reason) as Count, CAST(Count(Start_Reason)*1.0/(SELECT COUNT(Start_Reason)*1.0 
                           FROM Spotify 
@@ -613,6 +613,7 @@ A significant portion of my Drake listens appears to be passive rather than inte
 <br/><br/> In these cases, I'm not actively choosing to listen to Drake — I'm simply letting the music continue playing. 
 <br/><br/> This is most likely due to the large amount of Drake in my liked songs playlist (my most played playlist), thus it makes sense that a large proportion of my plays from Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs.
 
+<br/>Query:
 ```sql
 Select TOP 10 Artist, Cast(count(Track)*1.0/(SELECT COUNT(*)*1.0 
                           FROM SpotifyLikedSongs)*100
