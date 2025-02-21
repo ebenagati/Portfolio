@@ -589,13 +589,13 @@ Within my dataset I have the column Start_Reason which provides interesting insi
 
 Query:
 ```sql
-Select Start_Reason, Count(Start_Reason) as Count, CAST(Count(Start_Reason)*1.0/(SELECT COUNT(Start_Reason)*1.0 
+SELECT Start_Reason, Count(Start_Reason) as Count, CAST(Count(Start_Reason)*1.0/(SELECT COUNT(Start_Reason)*1.0 
                           FROM Spotify 
                           WHERE Artist = 'Drake'  AND Year in (2020,2021,2022,2023,2024)  AND Milliseconds > 30000)*100 AS Decimal(5,2)) AS Proportion_Percentage
-From Spotify
-Where Artist = 'Drake' and Year in (2020,2021,2022,2023,2024) AND Milliseconds > 30000
-Group by Start_Reason
-Order by Count(Start_Reason) desc
+FROM Spotify
+WHERE Artist = 'Drake' and Year in (2020,2021,2022,2023,2024) AND Milliseconds > 30000
+GROUP BY Start_Reason
+ORDER BY Count(Start_Reason) desc
 ```
 
 Output:
@@ -614,14 +614,14 @@ A significant portion of my Drake listens appears to be passive rather than inte
 <br/><br/> In these cases, I'm not actively choosing to listen to Drake — I'm simply letting the music continue playing. 
 <br/><br/> This is most likely due to the large amount of Drake in my liked songs playlist (my most played playlist), thus it makes sense that a large proportion of my plays from Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs.
 
-<br/>Query:
+Query:
 ```sql
-Select TOP 10 Artist, Cast(count(Track)*1.0/(SELECT COUNT(*)*1.0 
+SELECT TOP 10 Artist, Cast(count(Track)*1.0/(SELECT COUNT(*)*1.0 
                           FROM SpotifyLikedSongs)*100
                           AS DECIMAL (5,2)) as ProporitonPercentage
-From SpotifyLikedSongs
-Group By Artist
-Order by Count(*) Desc
+FROM SpotifyLikedSongs
+GROUP By Artist
+ORDER BY Count(*) Desc
 ```
 
 Output:
@@ -657,12 +657,23 @@ Output:
 | K-Trap       | clickrow     | 728              |
 | Kanye West   | clickrow     | 681              |
 
+The data demonstrates that when filtering for intentional listening, Drake is still my top artist which indicates that I have severely underestimated the amount of Drake I listen to.
 
-Filtering for only intentional plays showcases that Drake is still my top artist.
+
 ## Limitations
-A limitation of my analysis is the songs in which Drake is featured on are not included within my analysis. Currently within my dataset it is difficult to include songs in which an artist has been featured on due to the lack of standardisation across how featured artists are presented within each row of data. For example the song 'Sicko Mode' has Drake featured on, however this is not shown on the track name or artist, alternatively, the song 'Used to This (feat. Drake)' clearly indicates that Drake is a feature here. Another example is 'Fountains (with Tems)' further shows this lack of standardisation as 'Feat' is not used, instead 'With' is used. Therefore the lack of clear rules for how features are indicated has caused some inaccuracy in our analysis however I do not believe this inaccuracy will change my conclusions.
-<br/><br/>
-Another limitation is not knowing Spotify's exact methodology when determining top artists. In the year 2022 where I approximated my Wrapped results based on Spotify's unconfirmed methodology, my analysis may be slightly results for that year may be slightly incorrect due to not following Spotify's exact methodology. In addition to this, if I knew Spotify's exact methodology, this would have allowed me to create a more robust counter metholodology when devising my methodology.
+A potential limitation of my analysis is the songs in which Drake is featured on are not included within my analysis.
+
+Currently within my dataset it is difficult to include songs in which an artist has been featured on due to the lack of standardisation across how featured artists are presented within each row of data. 
+For example the song 'Sicko Mode' has Drake featured on, however this is not shown on the track name field or artist field, alternatively, the song 'Used to This (feat. Drake)' clearly indicates that Drake is a feature here. 
+
+Another example is 'Fountains (with Tems)' further shows this lack of standardisation as 'Feat' is not used here , instead 'With' is used. 
+Therefore the lack of clear rules for how features are indicated has caused some inaccuracy in my analysis however I do not believe this inaccuracy will change my conclusions.
+
+Another limitation is not knowing Spotify's exact methodology when determining top artists. 
+
+In the year 2022 where I approximated my Wrapped results based on Spotify's unconfirmed methodology, my analysis may be slightly incorrect due to not following Spotify's exact methodology. 
+In addition to this, if I knew Spotify's exact methodology, this would have allowed me to create a more robust counter metholodology when devising my methodology.
+
 ## Extension
 Through undertaking this project, I had a few thoughts of some other interesting questions I'd like answered regarding my Spotify Data.
 
