@@ -398,7 +398,7 @@ In 2023 it can be seen that Drake's position has fallen has in My Methodology's 
 ```sql
 SELECT Year, Artist, SUM(Milliseconds)/60000
 FROM Spotify
-WHERE Artist = 'Drake' and Year IN (2019,2020,2021,2022,2023,2024)
+WHERE Artist = 'Drake' and Year IN (2020,2021,2022,2023,2024)
 GROUP BY Year, Artist
 ORDER BY SUM(Milliseconds) desc
 ```
@@ -494,7 +494,7 @@ An interesting insight that can be seen here is that both 'From Time' & 'Fire & 
 | 5        | Pop Smoke                   | Owl City              | 2021 |
 
 In 2021 Drake has returned into my top 5 artists in both methodologies.
-<br/><br/>The concept of favourite songs are also demonstrated in 2021.
+<br/><br/>The concept of favourite songs are further demonstrated in 2021.
 
 <br/>Query:
 SELECT top 5 Artist, Track, SUM(Milliseconds)/60000 as Minutes_Listened, Cast(SUM(Milliseconds)*1.0/(SELECT SUM(Milliseconds)*1.0 
