@@ -556,22 +556,23 @@ Output:
 | Drake  | After Dark (feat. Static Major & Ty Dolla $ign) | 53 | 2.30%                |
 
 
-To summarise, across the years, Drake has a strong presence irregardless of the methodology except within 2022.
+<br/>To summarise, across the years, Drake has a strong presence irregardless of the methodology except within 2022.
 
-This analysis has allowed me to see the effects of external music events such as the Drake and Kendrick Lamar conflict on my listening habits as demonstrated by the Drake's domination of my listening habits in 2024.
+<br/>This analysis has allowed me to see the effects of external music events such as the Drake and Kendrick Lamar conflict on my listening habits as demonstrated by the Drake's domination of my listening habits in 2024.
 
-Furthermore, this analysis also helped my identify which songs form a core part of my Drake listening habits through particular songs appearing consistently across the years.
+<br/>Furthermore, this analysis also helped me identify which songs form a core part of my Drake listening habits through particular songs appearing consistently across the years.
 
-Drake's average position across the years for both methodologies was #4 which indicates that Drake isn't my most listened to artist over the period but he still has a strong presence in my listening habits. 
+<br/>Drake's average position across the years for both methodologies was #4 which indicates that Drake isn't my most listened to artist over the period but he still has a strong presence in my listening habits. 
 
-A visualisation of Drake's position can be seen below@
-
-
+<br/>A visualisation of Drake's position can be seen below:
 
 
-. However this was quite a surface level analysis. In the next section, I will take this analysis a step further and understand the reasons as to why Drake was played.
+![image alt](https://github.com/ebenagati/Portfolio/blob/main/Wrapped%20in%20Mystery%3A%20Why%20Drake%20Always%20Makes%20the%20Cut/Drake%20Position%202020-2024.PNG)
+
+<br/>In the next section, I will take this analysis a step further and understand the reasons as to why Drake was played.
 <br/><br/>
-Within our dataset we have the column Start_Reason which provides interesting insights as to why a song was played. Below is the list of reasons.
+Within my dataset I have the column Start_Reason which provides interesting insights as to why a song was played. 
+<br/><br/>Below is the list of reasons:
 
 | Reason      | Explanation                                                                                         |
 |-------------|-----------------------------------------------------------------------------------------------------|
@@ -584,7 +585,7 @@ Within our dataset we have the column Start_Reason which provides interesting in
 | remote      | A playback that was started using a connected remote device, such as Spotify Connect, a smart speaker, or another linked device. |
 | appload     | Spotify starts playing a track automatically upon opening the app, such as resuming playback from a previous session. |
 
-Now let's breakdown Drake plays across the last 5 years:
+<br/>I will now breakdown Drake plays across the last 5 years:
 
 ```sql
 Select Start_Reason, Count(Start_Reason) as Count, CAST(Count(Start_Reason)*1.0/(SELECT COUNT(Start_Reason)*1.0 
@@ -608,7 +609,9 @@ Output:
 | trackerror   | 30    | 1.03                  |
 | appload      | 27    | 0.93                  |
 
-A significant portion of my Drake listens appears to be passive rather than intentional. This is largely due to Spotify's autoplay feature, which automatically plays the next song after one finishes. In these cases, I'm not actively choosing to listen to Drake—I'm simply letting the music continue playing. This is most likely due to the large amount of Drake in my liked songs (my most common method of listening), thus it makes sense that a large proportion of my plays from a Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs.
+A significant portion of my Drake listens appears to be passive rather than intentional. This is largely due to Spotify's autoplay feature, which automatically plays the next song after one finishes. 
+<br/><br/> In these cases, I'm not actively choosing to listen to Drake — I'm simply letting the music continue playing. 
+<br/><br/> This is most likely due to the large amount of Drake in my liked songs playlist (my most played playlist), thus it makes sense that a large proportion of my plays from Drake are from sceniaros where a Drake song is simply the next in line due to his relatively large presence in my liked songs.
 
 ```sql
 Select TOP 10 Artist, Cast(count(Track)*1.0/(SELECT COUNT(*)*1.0 
