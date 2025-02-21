@@ -643,6 +643,7 @@ Output:
 
 Let's now take a look at my top 5 artists across the years through the lens of intentional listening.
 
+Query:
 ```sql
 SELECT TOP 5 Artist,Start_Reason, SUM(Milliseconds) / 60000 as Minutes_Listened
 FROM SPOTIFY
@@ -681,13 +682,15 @@ In the year 2022 where I approximated my Wrapped results based on Spotify's unco
 In addition to this, if I knew Spotify's exact methodology, this would have allowed me to create a more robust counter metholodology when devising my methodology.
 
 ## Extension
-Through undertaking this project, I had a few thoughts of some other interesting questions I'd like answered regarding my Spotify Data.
+Through undertaking this project, I had a few ideas of some other interesting questions that do not relate wholly to my problem statement but I'd like answered regarding my Spotify Data.
 
 **My Spotify Wrapped of all time**
 
 **Top 5 Artists**
-<br/>A query to find my top 5 artists of all time using the aforementioned Spotify methodology.
 
+A query to find my top 5 artists of all time using the aforementioned Spotify methodology.
+
+Query:
 ```sql
 SELECT TOP 5 Artist, COUNT(*) as Plays
 FROM Spotify
@@ -706,10 +709,32 @@ Output:
 | K-Trap       | 4130  |
 | Kanye West   | 3979  |
 
+My methodology:
+
+Query:
+```sql
+SELECT TOP 5 Artist, SUM(Milliseconds) / 60000 as Minutes_Listened
+FROM SPOTIFY
+WHERE YEAR in (2020,2021,2022,2023,2024) 
+GROUP BY Artist
+ORDER By SUM(Milliseconds) desc
+```
+
+Output:
+| Artist      | Minutes_Listened |
+|------------|----------------|
+| Drake      | 10,461         |
+| Jason Mraz | 9,422          |
+| Ed Sheeran | 9,245          |
+| Kanye West | 9,156          |
+| Headie One | 9,001          |
+
 
 **Top Songs**
-<br/>A query to find my top 5 songs of all time using the aforementioned Spotify methodology.
 
+A query to find my top 5 songs of all time using the aforementioned Spotify methodology.
+
+Query:
 ```sql
 SELECT TOP 5 Artist, Track, COUNT(*) as Plays
 FROM Spotify
@@ -726,6 +751,24 @@ Output:
 | Jamie Foxx    | Family                                          | 212   |
 | Wretch 32     | Open Conversation & Mark Duggan                | 205   |
 | Wretch 32     | Something                                       | 205   |
+
+My methodology:
+
+SELECT TOP 5 Artist, Track, SUM(Milliseconds) / 60000 as Minutes_Listened
+FROM SPOTIFY
+WHERE YEAR in (2020,2021,2022,2023,2024) 
+GROUP BY Artist, Track
+ORDER By SUM(Milliseconds) desc
+
+Output:
+| Artist       | Track                                      | Minutes_Listened |
+|-------------|-------------------------------------------|------------------|
+| relaxdaily   | B-Sides 1 - YouTube Mix                  | 930              |
+| PJ Morton    | BUILT FOR LOVE (feat. Jazmine Sullivan)  | 644              |
+| Adele        | Love Is A Game                           | 582              |
+| Adele        | I Drink Wine                             | 576              |
+| Kendrick Lamar | euphoria                               | 566              |
+
 
 **Listening Time**
 <br/>A query to determine how much time i've spent listening to songs on Spotify.
@@ -745,10 +788,12 @@ Output:
 | 813,460.83      | 13,557.68      | 564.90       |
 
 **How cyclical is my listening habits?**
-<br/>
+
 Do I listen to more music during the summer months or do I listen to more during the winter?
-<br/>
+
 A sql query to output total minutes listened to within each month of each year.
+
+Query:
 ```sql
 SELECT 
     Year, 
