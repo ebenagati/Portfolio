@@ -858,16 +858,33 @@ plt.show()
 ![image alt](https://github.com/ebenagati/Portfolio/blob/main/Wrapped%20in%20Mystery%3A%20Why%20Drake%20Always%20Makes%20the%20Cut/Spotify%20Minutes%20Heatmap.png)
 
 
-The data demonstrates a recurring seasonal pattern with an increase in minutes listened towards the middle of the year (May to August) which suggests during the summer months I listen to more music.<br/><br/>
-Conversely, towards the end of year the data shows a decrease in minutes listened to. This can be explained due to the fact that my holidays usually conincide with the summer time hence I have more freetime in the summer to listen to music. Furthermore, typcially there are more releases in the summer which contribute to the increase in my listening.<br/><br/>
+The data demonstrates an increase in Spotify listening over time.
+
+Early years show relatively lower listening with quite a few months with values below 10,000 minutes.
+
+This starts to change from 2019 in which there is a sharp increase in my listening habits, subsequently my listening minutes start falling as we get closer to the present time.
+
+A possible explanation for this increase in listening us due to the pandemic in which I spent more time at home and hence more free time to listen to music.
+
+In terms of seasonality, its difficult to identify a clear pattern that fits my listening habits of each year.
+
+ For example, in 2019 there is a steady rise in listening minutes for most months, comparatively in 2020, my listening habits start high, begin falling then rise again and then fall again.
+
 This particular heatmap presents an opportunity for further analysis around why specific months are so high (e.g. Novemeber 2019) which may provide some interesting insights.
 
 ## Conclusion
-This project has delved into the patterns behind my Spotify Wrapped and aims to determine whether Drake truly deserves a spot in my top 5 artists every year, despite not consciously listening to him often. Through examining my listening data across multiple years, it became clear that Drake I have underestimated the amount of Drake I listen to. 
+This project has delved into the patterns behind my Spotify Wrapped and aimed to determine whether Drake truly deserves a spot in my top 5 artists every year, despite not consciously listening to him often.
 
-The findings showed that while Drake consistently appeared in my top artists across multiple years, the ranking varied depending on the methodology used. To be more specific, typically when considering the total minutes listened, Drake often ranked higher. Additionally, this analysis demonstrated the influence of passive listening via autoplay, which contributed significantly to Drake's presence in my top artists. The intentional listening analysis revealed that even when filtered for intentional plays, Drake remained a dominant artist. This reinforces the idea that Drake is a deeply ingrained within my listening habits.
+Through examining my listening data across multiple years, it became clear that Drake I have underestimated the amount of Drake I listen to. 
 
-However, this analysis has faced some limitations, particularly the inconsistency in how featured artists are tracked and the uncertainty around Spotify’s exact methodology for Wrapped. These factors may have caused minor inaccuracies in my analysis.
+The findings showed that while Drake consistently appeared in my top artists across multiple years, the ranking varied depending on the methodology used.
 
-In conclusion, while Drake’s consistent top placement in my Wrapped results is undoubtedly influenced by autoplay and passive listening, he still holds a strong position within my listening habits.
+To be more specific, typically when considering the total minutes listened, Drake often ranked higher.
 
+Additionally, this analysis demonstrated the influence of passive listening via autoplay, which contributed significantly to Drake's presence in my top artists. 
+
+The intentional listening analysis revealed that even when filtered for intentional plays, Drake remained a dominant artist. This reinforces the idea that Drake is a deeply ingrained within my listening habits.
+
+However, this analysis has faced some limitations, particularly the inconsistency in how featured artists are tracked and the uncertainty around Spotify’s exact methodology for creating their Wrapped. These factors may have caused minor inaccuracies in my analysis.
+
+In conclusion, Drake definitely deserves to be in my Spotify Wrapped.
