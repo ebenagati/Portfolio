@@ -754,11 +754,13 @@ Output:
 
 My methodology:
 
+```sql
 SELECT TOP 5 Artist, Track, SUM(Milliseconds) / 60000 as Minutes_Listened
 FROM SPOTIFY
 WHERE YEAR in (2020,2021,2022,2023,2024) 
 GROUP BY Artist, Track
 ORDER By SUM(Milliseconds) desc
+```
 
 Output:
 | Artist       | Track                                      | Minutes_Listened |
